@@ -26,7 +26,7 @@ namespace L02.Controllers
 
         public string Location(string zip)
         {
-            return HttpUtility.UrlEncode($"Products/Location?zip={zip}");
+            return $"Location displayed for zip = {zip}";
         }
     }
 }
