@@ -59,7 +59,7 @@ namespace EnrollmentApplication.Controllers
             }
 
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title", enrollment.CourseID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", "LastName", enrollment.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName",enrollment.StudentID);
             return View(enrollment);
         }
 
