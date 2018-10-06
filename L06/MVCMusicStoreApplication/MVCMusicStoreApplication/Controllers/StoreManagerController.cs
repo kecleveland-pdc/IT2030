@@ -136,19 +136,9 @@ namespace MVCMusicStoreApplication.Controllers
         public ActionResult Test()
         {
             var albums = db.Albums;
-
-            var albumsByName = (from a in albums
-                               where a.Title == "Stormbringer"
-                               select a);
-
-            var albumsByArtist = (from a in albums
-                                 where a.Artist.Name == "Chic"
-                                 select a);
-
-            var albumsByGenre = (from a in albums
-                                where a.Genre.Name == "Classical"
-                                orderby a.Title descending
-                                select a);
+            var albumsByName = albums.Where(x => x.Title == "Stormbringer");
+            var albumsByArtist = albums.Where(x => x.Artist.Name == "Chic");
+            var albumsByGenre = albums.Where(x => x.Genre.Name == "Classical").OrderByDescending(x => x.Title);
 
             ViewBag.AlbumsByName = new SelectList(albumsByName, "AlbumId", "Title", albumsByName.First().AlbumId);
             ViewBag.AlbumsByArtist = new SelectList(albumsByArtist, "AlbumId", "Title", albumsByArtist.First().AlbumId);
