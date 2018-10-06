@@ -132,5 +132,29 @@ namespace MVCMusicStoreApplication.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Test()
+        {
+            var albums = db.Albums;
+
+            var albumsByName = (from a in albums
+                               where a.Title == "Stormbringer"
+                               select a);
+
+            var albumsByArtist = (from a in albums
+                                 where a.Artist.Name == "Chic"
+                                 select a);
+
+            var albumsByGenre = (from a in albums
+                                where a.Genre.Name == "Classical"
+                                orderby a.Title descending
+                                select a);
+
+            ViewBag.AlbumsByName = new SelectList(albumsByName, "AlbumId", "Title", albumsByName.First().AlbumId);
+            ViewBag.AlbumsByArtist = new SelectList(albumsByArtist, "AlbumId", "Title", albumsByArtist.First().AlbumId);
+            ViewBag.AlbumsByGenre = new SelectList(albumsByGenre, "AlbumId", "Title", albumsByGenre.First().AlbumId);
+
+            return View();
+        }
     }
 }
