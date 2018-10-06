@@ -1,0 +1,73 @@
+﻿@model EnrollmentApplication.Models.Enrollment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Enrollment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <!--TITLE-->
+        <dt>
+            @Html.LabelFor(model => model.Course.Title, "Course Title")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Course.Title)
+        </dd>
+
+        <!--FIRST NAME-->
+        <dt>
+            @Html.LabelFor(model => model.Student.FirstName, "First Name")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+        <!--IS ACTIVE-->
+        <dt>
+            @Html.LabelFor(model => model.IsActive, "Is Active")
+        </dt>
+        <dd>
+            @Html.CheckBoxFor(model => model.IsActive)
+        </dd>
+
+        <!--ASSIGNED CAMPUS-->
+        <dt>
+            @Html.LabelFor(model => model.AssignedCampus, "Assigned Campus")
+        </dt>
+        <dd>
+            @Html.TextBoxFor(model => model.AssignedCampus)
+        </dd>
+
+        <!--ENROLLMENT SEMESTER-->
+        <dt>
+            @Html.LabelFor(model => model.EnrollmentSemester, "Enrollment Semester")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentSemester)
+        </dd>
+
+        <!--ENROLLMENT YEAR-->
+        <dt>
+            @Html.LabelFor(model => model.EnrollmentYear, "Enrollment Year")
+        </dt>
+        <dd>
+            @Html.TextBoxFor(model => model.EnrollmentYear)
+        </dd>
+
+        <!--GRADE-->
+        <dt>
+            @Html.LabelFor(model => model.Grade, "Grade")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EnrollmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
