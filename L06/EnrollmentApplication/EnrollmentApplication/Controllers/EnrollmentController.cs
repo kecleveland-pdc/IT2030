@@ -41,6 +41,7 @@ namespace EnrollmentApplication.Controllers
         {
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Title");
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
+        
             return View();
         }
 
@@ -70,6 +71,7 @@ namespace EnrollmentApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Enrollment enrollment = db.Enrollments.Find(id);
             if (enrollment == null)
             {
