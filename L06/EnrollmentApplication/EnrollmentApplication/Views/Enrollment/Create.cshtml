@@ -17,7 +17,7 @@
         <!-- STUDENT ID -->
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentID, "Student ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StudentID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div >
                 @Html.DropDownList("StudentID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
 
         <!-- COURSE ID -->
         <div class="form-group">
-            @Html.LabelFor(model => model.CourseID, "Course ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CourseID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div>
                 @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger" })
@@ -35,7 +35,7 @@
 
       <!-- IS ACTIVE -->
         <div class="form-group">
-            @Html.LabelFor(model => model.IsActive, "Is Active", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="checkbox-inline">
                 @Html.CheckBoxFor(model => model.IsActive, false)
                 @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
@@ -44,7 +44,7 @@
 
        <!-- ASSIGNED CAMPUS -->
         <div class="form-group">
-            @Html.LabelFor(model => model.AssignedCampus, "Assigned Campus", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AssignedCampus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div>
                 @Html.TextBoxFor(model => model.AssignedCampus, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AssignedCampus, "", new { @class = "text-danger" })
@@ -53,26 +53,26 @@
 
         <!-- ENROLLMENT SEMESTER -->
         <div class="form-group">
-            @Html.LabelFor(model => model.EnrollmentSemester, "Enrollment Semester", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EnrollmentSemester, htmlAttributes: new { @class = "control-label col-md-2" })
              <div>
                  <div class="radio-inline">
                      @Html.RadioButtonFor(model => model.EnrollmentSemester, "Fall") Fall
-                     @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger" })
+                     @Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
                  </div>
                  <div class="radio-inline">
                      @Html.RadioButtonFor(model => model.EnrollmentSemester, "Spring") Spring
-                     @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger" })
+                     @Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
                  </div>
                  <div class="radio-inline">
                      @Html.RadioButtonFor(model => model.EnrollmentSemester, "Summer") Summer
-                     @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger" })
+                     @Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
                  </div>
              </div>
         </div>
 
         <!-- ENROLLMENT YEAR-->
         <div class="form-group">
-            @Html.LabelFor(model => model.EnrollmentYear, "Enrollment Year", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EnrollmentYear, htmlAttributes: new { @class = "control-label col-md-2" })
             <div>
                 @Html.TextBoxFor(model => model.EnrollmentYear, "Enrollment Year")
                 @Html.ValidationMessageFor(model => model.EnrollmentYear, "", new { @class = "text-danger" })

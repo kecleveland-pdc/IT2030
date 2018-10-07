@@ -9,6 +9,8 @@ namespace EnrollmentApplication.Models
     
     public class MinDateAttribute : ValidationAttribute
     {
+        private readonly int _year;
+
         public MinDateAttribute(int year) : base("{0} must be at least 2018")
         {
             _year = year;
@@ -18,8 +20,8 @@ namespace EnrollmentApplication.Models
         {
             if (value != null)
             {
-                var year = Convert.ToInt32(value);
-                if (year < 2018)
+                var valueAsInt = Convert.ToInt32(value);
+                if (valueAsInt < _year)
                 {
                     var errorMessage = FormatErrorMessage(validationContext.DisplayName);
                     return new ValidationResult(errorMessage);
@@ -28,7 +30,7 @@ namespace EnrollmentApplication.Models
             return ValidationResult.Success;
         }
 
-        private readonly int _year;
+
 
     }
 }
