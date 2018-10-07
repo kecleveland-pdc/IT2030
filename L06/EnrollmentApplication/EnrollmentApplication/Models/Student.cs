@@ -13,12 +13,12 @@ namespace EnrollmentApplication.Models
         [DisplayName("Student ID")]
         public virtual int StudentID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "First Name field cannot be empty")]
         [DisplayName("First Name")]
         [StringLength(50, ErrorMessage = "First Name must be 50 characters or less")]
         public virtual string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Last Name field cannot be empty")]
         [DisplayName("Last Name")]
         [StringLength(50, ErrorMessage = "Last Name must be 50 characters or less")]
         public virtual string LastName { get; set; }

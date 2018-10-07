@@ -25,6 +25,7 @@ namespace EnrollmentApplication.Models
 
         public virtual Course Course { get; set; }
 
+        [DisplayName("Active")]
         public virtual bool IsActive { get; set; }
 
         [Required(ErrorMessage = "Assigned Campus is required")]
@@ -35,7 +36,8 @@ namespace EnrollmentApplication.Models
         [DisplayName("Enrolled in Semester")]
         public virtual string EnrollmentSemester { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Enrollment year is required")]
+        [DisplayName("Enrollment Year")]
         [MinDate(2018, ErrorMessage = "Year must be at least 2018")]
         public virtual int EnrollmentYear { get; set; }
     }

@@ -74,8 +74,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EnrollmentYear, htmlAttributes: new { @class = "control-label col-md-2" })
             <div>
-                @Html.TextBoxFor(model => model.EnrollmentYear, "Enrollment Year")
+                @Html.TextBoxFor(model => model.EnrollmentYear)
                 @Html.ValidationMessageFor(model => model.EnrollmentYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- NUMBER OF CREDITS -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Course.Credits, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.TextBoxFor(model => model.Course.Credits)
+                @Html.ValidationMessageFor(model => model.Course.Credits, "", new { @class = "text-danger" })
             </div>
         </div>
 

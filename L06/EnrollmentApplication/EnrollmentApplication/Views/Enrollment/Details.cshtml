@@ -12,7 +12,7 @@
     <dl class="dl-horizontal">
         <!--TITLE-->
         <dt>
-            @Html.LabelFor(model => model.Course.Title, "Course Title")
+            @Html.LabelFor(model => model.Course.Title)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Course.Title)
@@ -20,15 +20,23 @@
 
         <!--FIRST NAME-->
         <dt>
-            @Html.LabelFor(model => model.Student.FirstName, "First Name")
+            @Html.LabelFor(model => model.Student.FirstName)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Student.FirstName)
         </dd>
 
+        <!--LAST NAME-->
+        <dt>
+            @Html.LabelFor(model => model.Student.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
         <!--IS ACTIVE-->
         <dt>
-            @Html.LabelFor(model => model.IsActive, "Is Active")
+            @Html.LabelFor(model => model.IsActive)
         </dt>
         <dd>
             @Html.CheckBoxFor(model => model.IsActive)
@@ -36,7 +44,7 @@
 
         <!--ASSIGNED CAMPUS-->
         <dt>
-            @Html.LabelFor(model => model.AssignedCampus, "Assigned Campus")
+            @Html.LabelFor(model => model.AssignedCampus)
         </dt>
         <dd>
             @Html.TextBoxFor(model => model.AssignedCampus)
@@ -44,7 +52,7 @@
 
         <!--ENROLLMENT SEMESTER-->
         <dt>
-            @Html.LabelFor(model => model.EnrollmentSemester, "Enrollment Semester")
+            @Html.LabelFor(model => model.EnrollmentSemester)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.EnrollmentSemester)
@@ -52,7 +60,7 @@
 
         <!--ENROLLMENT YEAR-->
         <dt>
-            @Html.LabelFor(model => model.EnrollmentYear, "Enrollment Year")
+            @Html.LabelFor(model => model.EnrollmentYear)
         </dt>
         <dd>
             @Html.TextBoxFor(model => model.EnrollmentYear)
@@ -60,7 +68,7 @@
 
         <!--GRADE-->
         <dt>
-            @Html.LabelFor(model => model.Grade, "Grade")
+            @Html.LabelFor(model => model.Grade)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Grade)
