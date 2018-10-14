@@ -23,6 +23,8 @@ namespace EnrollmentApplication.Models
         [StringLength(50, ErrorMessage = "Last Name must be 50 characters or less")]
         public virtual string LastName { get; set; }
 
+        [Required(ErrorMessage = "Age cannot be empty")]
+        [MinAge(18)]
         public int Age { get; set; }
     }
 }

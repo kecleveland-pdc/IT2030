@@ -38,8 +38,10 @@ namespace EnrollmentApplication.Models
 
         [Required(ErrorMessage = "Enrollment year is required")]
         [DisplayName("Enrollment Year")]
-        [MinDate(2018, ErrorMessage = "Year must be at least 2018")]
+        [MinDate(2018)]
         public virtual int EnrollmentYear { get; set; }
+
+        public virtual string Notes { get; set; }
     }
 
     
