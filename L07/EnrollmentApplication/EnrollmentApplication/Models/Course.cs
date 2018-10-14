@@ -26,6 +26,7 @@ namespace EnrollmentApplication.Models
         [Range(1, 4)]
         public virtual string Credits { get; set; }
 
+        [DisplayName("Instructor Name")]
         public virtual string InstructorName { get; set; }
 
         //Self-validating object 
