@@ -26,5 +26,7 @@ namespace EnrollmentApplication.Models
         [Range(1, 4, ErrorMessage="Number of credits must be 1-4")]
         public virtual decimal Credits { get; set; }
 
+        public virtual string InstructorName { get; set; }
+
     }
 }

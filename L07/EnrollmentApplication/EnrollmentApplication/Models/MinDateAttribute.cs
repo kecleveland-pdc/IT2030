@@ -29,8 +29,5 @@ namespace EnrollmentApplication.Models
             }
             return ValidationResult.Success;
         }
-
-
-
     }
 }
