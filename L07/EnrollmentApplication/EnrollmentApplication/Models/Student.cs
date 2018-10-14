@@ -22,5 +22,7 @@ namespace EnrollmentApplication.Models
         [DisplayName("Last Name")]
         [StringLength(50, ErrorMessage = "Last Name must be 50 characters or less")]
         public virtual string LastName { get; set; }
+
+        public int Age { get; set; }
     }
 }
