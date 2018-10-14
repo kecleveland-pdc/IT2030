@@ -1,0 +1,123 @@
+﻿@model EnrollmentApplication.Models.Enrollment
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Enroll a student</h4>
+        <hr />
+        <!-- STUDENT ID -->
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div >
+                @Html.DropDownList("StudentID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- COURSE ID -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+      <!-- IS ACTIVE -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="checkbox-inline">
+                @Html.CheckBoxFor(model => model.IsActive, false)
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       <!-- ASSIGNED CAMPUS -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssignedCampus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.TextBoxFor(model => model.AssignedCampus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssignedCampus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- ENROLLMENT SEMESTER -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnrollmentSemester, htmlAttributes: new { @class = "control-label col-md-2" })
+             <div>
+                 <div class="radio-inline">
+                     @Html.RadioButtonFor(model => model.EnrollmentSemester, "Fall") Fall
+                     @Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
+                 </div>
+                 <div class="radio-inline">
+                     @Html.RadioButtonFor(model => model.EnrollmentSemester, "Spring") Spring
+                     @Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
+                 </div>
+                 <div class="radio-inline">
+                     @Html.RadioButtonFor(model => model.EnrollmentSemester, "Summer") Summer
+                     @Html.ValidationMessageFor(model => model.EnrollmentSemester, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+        </div>
+
+        <!-- ENROLLMENT YEAR-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnrollmentYear, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.TextBoxFor(model => model.EnrollmentYear)
+                @Html.ValidationMessageFor(model => model.EnrollmentYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- NUMBER OF CREDITS -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Course.Credits, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.TextBoxFor(model => model.Course.Credits)
+                @Html.ValidationMessageFor(model => model.Course.Credits, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- GRADE-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.TextBoxFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                @Html.TextBoxFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
