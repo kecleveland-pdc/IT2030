@@ -10,7 +10,7 @@ namespace EnrollmentApplication.Models
     public class InvalidCharsAttribute : ValidationAttribute
     {
         private readonly string _invalidChars;
-        public InvalidCharsAttribute(string invalidChars) : base("{0} uses invalid characters.")
+        public InvalidCharsAttribute(string invalidChars) : base("Notes contaains invalid characters!")
         {
             _invalidChars = invalidChars;
         }
