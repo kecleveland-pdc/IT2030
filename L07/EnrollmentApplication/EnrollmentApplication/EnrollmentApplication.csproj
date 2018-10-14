@@ -176,6 +176,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\InvalidCharsAttribute.cs" />
     <Compile Include="Models\MinAgeAttribute.cs" />
     <Compile Include="Models\MinDateAttribute.cs" />
     <Compile Include="Models\Enrollment.cs" />

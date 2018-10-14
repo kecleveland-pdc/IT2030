@@ -41,6 +41,7 @@ namespace EnrollmentApplication.Models
         [MinDate(2018)]
         public virtual int EnrollmentYear { get; set; }
 
+        [InvalidChars("@#$", ErrorMessage="Notes cannot contain @, #, or $")]
         public virtual string Notes { get; set; }
     }
 
