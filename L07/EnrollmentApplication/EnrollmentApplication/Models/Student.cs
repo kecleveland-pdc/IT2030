@@ -26,5 +26,11 @@ namespace EnrollmentApplication.Models
         [Required(ErrorMessage = "Age cannot be empty")]
         [MinAge(18)]
         public int Age { get; set; }
+
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string Zipcode { get; set; }
+        public string State { get; set; }
     }
 }
