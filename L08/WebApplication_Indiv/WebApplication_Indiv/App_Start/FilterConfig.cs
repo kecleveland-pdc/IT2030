@@ -7,6 +7,7 @@ namespace WebApplication_Indiv
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new AuthorizeAttribute()); //all controllers use authorization
             filters.Add(new HandleErrorAttribute());
         }
     }

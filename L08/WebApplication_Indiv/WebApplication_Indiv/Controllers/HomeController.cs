@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace WebApplication_Indiv.Controllers
 {
+    //[Authorize] //added at the class level which means all methods impacted
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
@@ -19,7 +21,7 @@ namespace WebApplication_Indiv.Controllers
 
             return View();
         }
-
+        
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
