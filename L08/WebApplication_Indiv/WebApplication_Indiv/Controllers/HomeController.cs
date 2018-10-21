@@ -9,7 +9,7 @@ namespace WebApplication_Indiv.Controllers
     //[Authorize] //added at the class level which means all methods impacted
     public class HomeController : Controller
     {
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Index()
         {
             return View();
