@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp_NoAuth", "WebApp_NoAuth\WebApp_NoAuth.csproj", "{0A737E38-3F45-4B1C-B456-0C33F163AE5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A737E38-3F45-4B1C-B456-0C33F163AE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A737E38-3F45-4B1C-B456-0C33F163AE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A737E38-3F45-4B1C-B456-0C33F163AE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A737E38-3F45-4B1C-B456-0C33F163AE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
