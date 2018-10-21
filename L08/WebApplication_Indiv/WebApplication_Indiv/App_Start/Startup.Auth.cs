@@ -60,8 +60,8 @@ namespace WebApplication_Indiv
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "",
-                ClientSecret = ""
+                ClientId = "156573373941-9mdc75n0fbtgogj7guc00k1534j7c8oq.apps.googleusercontent.com",
+                ClientSecret = "0Dpu2MnXJKcYpfUMDB-UBUUs"
             });
         }
     }
