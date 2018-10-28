@@ -23,13 +23,13 @@
     <div class="panel-heading">Artist Search</div>
     <div class="panel-body">
         @using (
-            Ajax.BeginForm("ArtistSearch", "Home",
+            Ajax.BeginForm("ArtistSearch", "StoreManager",
                 new AjaxOptions
                 {
                     InsertionMode = InsertionMode.Replace,
                     HttpMethod = "GET",
                     UpdateTargetId = "searchresults",
-                    LoadingElementId = "ajax.loader",
+                    LoadingElementId = "ajax-loader",
                     OnFailure = "searchFailed"
                 }
             )
@@ -111,4 +111,5 @@
 
 @section Scripts {
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Apps/MusicStoreScript.js"></script>
 }

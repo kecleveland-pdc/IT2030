@@ -41,6 +41,17 @@ namespace MVCMusicStoreApplication.Controllers
             return album;
         }
 
+        public ActionResult ArtistSearch(string q)
+        {
+            var artists = GetArtists(q);
+            return PartialView(artists);
+        }
+
+        private List<Artist> GetArtists(string searchString)
+        {
+            return  db.Artists.Where(a => a.Name.Contains(searchString)).ToList();
+        }
+
         // GET: StoreManager/Details/5
         public ActionResult Details(int? id)
         {
