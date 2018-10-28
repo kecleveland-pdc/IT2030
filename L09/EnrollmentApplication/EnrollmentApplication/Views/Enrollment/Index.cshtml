@@ -5,7 +5,46 @@
 }
 
 <h2>Index</h2>
+<div>
+    <div class="panel-heading">Search</div>
+    <div class="panel-body">
+        @Html.Label("Search by Student Last Name")
+        @using (
+                Ajax.BeginForm("SearchByStudent", "Enrollment",
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        UpdateTargetId = "searchresults",
+                        OnFailure = "searchFailed"
+                    }
+                )
+            )
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+        }
+        @Html.Label("Search by Course Description")
+        @using (
+                Ajax.BeginForm("SearchBycourse", "Enrollment",
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        UpdateTargetId = "searchresults",
+                        OnFailure = "searchFailed"
+                    }
+                )
+            )
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+        }
+        <div id="searchresults">
 
+        </div>
+    </div>
+</div> 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -55,3 +94,8 @@
 }
 
 </table>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Apps/EnrollmentApplicationScript.js"></script>
+}
