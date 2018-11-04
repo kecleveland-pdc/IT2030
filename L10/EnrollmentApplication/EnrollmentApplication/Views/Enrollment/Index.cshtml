@@ -1,0 +1,101 @@
+﻿@model IEnumerable<EnrollmentApplication.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    <div class="panel-heading">Search</div>
+    <div class="panel-body">
+        @Html.Label("Search by Student Last Name")
+        @using (
+                Ajax.BeginForm("SearchByStudent", "Enrollment",
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        UpdateTargetId = "searchresults",
+                        OnFailure = "searchFailed"
+                    }
+                )
+            )
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+        }
+        @Html.Label("Search by Course Description")
+        @using (
+                Ajax.BeginForm("SearchBycourse", "Enrollment",
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        UpdateTargetId = "searchresults",
+                        OnFailure = "searchFailed"
+                    }
+                )
+            )
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+        }
+        <div id="searchresults">
+
+        </div>
+    </div>
+</div> 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Apps/EnrollmentApplicationScript.js"></script>
+}
