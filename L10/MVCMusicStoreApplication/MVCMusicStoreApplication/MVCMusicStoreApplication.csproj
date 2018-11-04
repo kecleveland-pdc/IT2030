@@ -228,6 +228,7 @@
     <Content Include="Views\StoreManager\_DailyDeal.cshtml" />
     <Content Include="Views\StoreManager\ArtistSearch.cshtml" />
     <Content Include="Views\Store\Browse.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
