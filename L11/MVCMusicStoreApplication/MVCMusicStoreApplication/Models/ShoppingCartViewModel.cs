@@ -7,7 +7,7 @@ namespace MVCMusicStoreApplication.Models.ViewModels
 {
     public class ShoppingCartViewModel
     {
-        public List<Cart> CartItems { get; set; }
-        public decimal CartTotal { get; set; }
+        public List<Cart> CartItems;
+        public decimal CartTotal;
     }
 }
