@@ -29,7 +29,7 @@ namespace MVCMusicStoreApplication.Controllers
             //id is AlbumId
             ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
             cart.AddToCart(id);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         //Ajax Call
