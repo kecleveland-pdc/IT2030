@@ -150,6 +150,7 @@
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -157,9 +158,11 @@
     </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MVCMusicStoreDB.cs" />
     <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Models\ShoppingCarViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
