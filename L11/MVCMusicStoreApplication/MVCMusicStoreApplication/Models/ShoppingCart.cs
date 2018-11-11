@@ -49,5 +49,32 @@ namespace MVCMusicStoreApplication.Models
                              select cartItems.AlbumSelected.Price * (int?) cartItems.Count).Sum();
             return total ?? decimal.Zero; 
         }
+
+        public void AddToCart(int id)
+        {
+            //cartItem exists already in db => update Count
+            Cart cartItem =  db.Carts.SingleOrDefault(carts => carts.CartID == ShoppingCartId && carts.AlbumId == id);
+            if (cartItem == null)
+            {
+                Album album = db.Albums.SingleOrDefault(a => a.AlbumId == id);
+                cartItem = new Cart()
+                {
+                    CartID = ShoppingCartId,
+                    AlbumId = id,
+                    AlbumSelected = album,
+                    Count = 1,
+                    DateCreated = DateTime.Now
+                };
+
+                db.Carts.Add(cartItem);
+            }
+            else
+            {
+                //cartItem does not exist in db => add item to db
+                cartItem.Count++;
+            }
+
+            db.SaveChanges();
+        }
     }
 }

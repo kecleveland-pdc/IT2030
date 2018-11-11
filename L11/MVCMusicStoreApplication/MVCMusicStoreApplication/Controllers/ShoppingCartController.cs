@@ -24,9 +24,12 @@ namespace MVCMusicStoreApplication.Controllers
         }
 
         //GET: /ShoppingCart/AddToCart/5
-        public ActionResult AddToCart()
+        public ActionResult AddToCart(int id)
         {
-            return View();
+            //id is AlbumId
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
+            cart.AddToCart(id);
+            return View("Index");
         }
 
         //Ajax Call
