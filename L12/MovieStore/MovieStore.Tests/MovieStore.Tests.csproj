@@ -92,7 +92,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MusicStore\MovieStore.csproj">
+    <ProjectReference Include="..\MovieStore\MovieStore.csproj">
       <Project>{29CEF4A5-F6B4-4144-A580-3F336804330B}</Project>
       <Name>MovieStore</Name>
     </ProjectReference>
