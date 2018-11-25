@@ -20,8 +20,25 @@ namespace MovieStore.Controllers
             return View();
         }
 
+        public ActionResult IndexRedirect()
+        {
+            return RedirectToAction("Create");
+        }
+
+        public List<Movie> ListOfMovies()
+        {
+            List<Movie> list = new List<Movie>
+            {
+                new Movie{MovieId = 1, Title="Terminator 1"},
+                new Movie{MovieId = 2, Title="Terminator 2"},
+                new Movie{MovieId = 3, Title="Terminator 3"},
+
+            };
+
+            return list;
+        }
         // GET: Movies
-        public ActionResult List()
+        public ActionResult ListFromDb()
         {
             return View(db.Movies.ToList());
         }

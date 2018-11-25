@@ -22,5 +22,33 @@ namespace MovieStore.Tests.Controllers
             //Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void MovieStore_ListOfMovies()
+        {
+            //Arrange
+            MoviesController controller = new MoviesController();
+
+            //Act
+            var result = controller.ListOfMovies();
+
+            //Assert
+            Assert.AreEqual("Terminator 1", result[0].Title);
+            Assert.AreEqual("Terminator 2", result[1].Title);
+            Assert.AreEqual("Terminator 3", result[2].Title);
+        }
+
+        [TestMethod]
+        public void MovieStore_IndexRedirect()
+        {
+            //Arrange
+            MoviesController controller = new MoviesController();
+
+            //Act
+            var result = controller.IndexRedirect() as RedirectToRouteResult;
+
+            //Assert
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+        }
     }
 }
