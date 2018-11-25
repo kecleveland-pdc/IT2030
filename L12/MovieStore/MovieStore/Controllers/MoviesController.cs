@@ -6,16 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MusicStore.Models;
+using MovieStore.Models;
 
-namespace MusicStore.Controllers
+namespace MovieStore.Controllers
 {
     public class MoviesController : Controller
     {
-        private MusicStoreDbContext db = new MusicStoreDbContext();
+        private MovieStoreDbContext db = new MovieStoreDbContext();
 
         // GET: Movies
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Movies
+        public ActionResult List()
         {
             return View(db.Movies.ToList());
         }

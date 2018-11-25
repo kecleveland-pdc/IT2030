@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MusicStore.Models
+namespace MovieStore.Models
 {
-    public class MusicStoreDbContext : DbContext
+    public class MovieStoreDbContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -15,10 +15,10 @@ namespace MusicStore.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public MusicStoreDbContext() : base("name=MusicStoreDbContext")
+        public MovieStoreDbContext() : base("name=MovieStoreDbContext")
         {
         }
 
-        public System.Data.Entity.DbSet<MusicStore.Models.Movie> Movies { get; set; }
+        public System.Data.Entity.DbSet<MovieStore.Models.Movie> Movies { get; set; }
     }
 }
