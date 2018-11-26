@@ -8,11 +8,27 @@ using System.Web;
 using System.Web.Mvc;
 using MovieStore.Models;
 
+
 namespace MovieStore.Controllers
 {
     public class MoviesController : Controller
     {
         private MovieStoreDbContext db = new MovieStoreDbContext();
+
+        //dependency injection using constructor 
+
+        //will be used when the application is executed
+
+        public MoviesController()
+        {
+            db = new MovieStoreDbContext();
+        }
+
+        //will be used by the unit test
+        public MoviesController(MovieStoreDbContext dbContext)
+        {
+            db = dbContext;
+        }
 
         // GET: Movies
         public ActionResult Index()
@@ -20,8 +36,30 @@ namespace MovieStore.Controllers
             return View();
         }
 
+        public ActionResult IndexRedirect(int id)
+        {
+            if(id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return RedirectToAction("Create", "HomeController");
+        }
+
+        public List<Movie> ListOfMovies()
+        {
+            List<Movie> list = new List<Movie>
+            {
+                new Movie{MovieId = 1, Title="Terminator 1"},
+                new Movie{MovieId = 2, Title="Terminator 2"},
+                new Movie{MovieId = 3, Title="Terminator 3"},
+
+            };
+
+            return list;
+        }
         // GET: Movies
-        public ActionResult List()
+        public ActionResult ListFromDb()
         {
             return View(db.Movies.ToList());
         }
