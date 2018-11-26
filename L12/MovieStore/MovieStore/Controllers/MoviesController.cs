@@ -8,11 +8,27 @@ using System.Web;
 using System.Web.Mvc;
 using MovieStore.Models;
 
+
 namespace MovieStore.Controllers
 {
     public class MoviesController : Controller
     {
         private MovieStoreDbContext db = new MovieStoreDbContext();
+
+        //dependency injection using constructor 
+
+        //will be used when the application is executed
+
+        public MoviesController()
+        {
+            db = new MovieStoreDbContext();
+        }
+
+        //will be used by the unit test
+        public MoviesController(MovieStoreDbContext dbContext)
+        {
+            db = dbContext;
+        }
 
         // GET: Movies
         public ActionResult Index()
