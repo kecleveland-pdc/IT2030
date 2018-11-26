@@ -20,9 +20,14 @@ namespace MovieStore.Controllers
             return View();
         }
 
-        public ActionResult IndexRedirect()
+        public ActionResult IndexRedirect(int id)
         {
-            return RedirectToAction("Create");
+            if(id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return RedirectToAction("Create", "HomeController");
         }
 
         public List<Movie> ListOfMovies()
