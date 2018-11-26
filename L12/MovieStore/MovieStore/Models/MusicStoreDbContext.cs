@@ -19,6 +19,6 @@ namespace MovieStore.Models
         {
         }
 
-        public System.Data.Entity.DbSet<MovieStore.Models.Movie> Movies { get; set; }
+        public virtual System.Data.Entity.DbSet<MovieStore.Models.Movie> Movies { get; set; }
     }
 }

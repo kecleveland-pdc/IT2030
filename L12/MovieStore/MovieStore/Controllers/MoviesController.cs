@@ -13,14 +13,13 @@ namespace MovieStore.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieStoreDbContext db = new MovieStoreDbContext();
+        private MovieStoreDbContext db;
 
         //dependency injection using constructor 
-
         //will be used when the application is executed
-
         public MoviesController()
         {
+            //if no parameter provided
             db = new MovieStoreDbContext();
         }
 
