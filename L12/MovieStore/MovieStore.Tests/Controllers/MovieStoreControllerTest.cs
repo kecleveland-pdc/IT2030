@@ -366,8 +366,9 @@ namespace MovieStore.Tests.Controllers
             mockSet.As<IQueryable<Movie>>().Setup(m => m.Provider).Returns(list.Provider);
             mockSet.As<IQueryable<Movie>>().Setup(m => m.ElementType).Returns(list.ElementType);
             mockSet.As<IQueryable<Movie>>().Setup(m => m.Expression).Returns(list.Expression);
+            mockSet.Setup(m => m.Find(It.IsAny<Object>())).Returns(list.First());
+
             mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
-    
             MoviesController controller = new MoviesController(mockContext.Object);
 
             //Act
