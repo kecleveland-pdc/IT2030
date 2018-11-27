@@ -58,6 +58,41 @@ namespace MovieStore.Tests.Controllers
 
         }
 
+        [TestMethod]
+        public void MovieStore_Create_Post_Success()
+        {
+            //Arrange
+            Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
+            Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
+
+            var list = new List<Movie>
+            {
+                new Movie() {MovieId=1, Title="Jaws"},
+                new Movie() {MovieId=2, Title="Jurassic Park" }
+            }.AsQueryable();
+
+            mockSet.As<IQueryable<Movie>>().Setup(m => m.GetEnumerator()).Returns(list.GetEnumerator());
+            mockSet.As<IQueryable<Movie>>().Setup(m => m.Provider).Returns(list.Provider);
+            mockSet.As<IQueryable<Movie>>().Setup(m => m.ElementType).Returns(list.ElementType);
+            mockSet.As<IQueryable<Movie>>().Setup(m => m.Expression).Returns(list.Expression);
+            mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
+
+            Movie movie = new Movie()
+            {
+                MovieId = 3,
+                Title = "Jaws II"
+
+            };
+
+            MoviesController controller = new MoviesController(mockContext.Object);
+            RedirectToRouteResult result = controller.Create(movie) as RedirectToRouteResult;
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Index", result.RouteValues["Action"]);
+        }
+
+
         //DETAILS
         [TestMethod]
         public void MovieStore_Details_Success()
@@ -181,6 +216,42 @@ namespace MovieStore.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
+
+        //[TestMethod]
+        //public void MovieStore_Edit_Post_Success()
+        //{
+        //    //Arrange
+        //    Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
+        //    Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
+
+        //    var list = new List<Movie>
+        //    {
+        //        new Movie() {MovieId=1, Title="Jaws"},
+        //        new Movie() {MovieId=2, Title="Jurassic Park" }
+        //    }.AsQueryable();
+
+        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.GetEnumerator()).Returns(list.GetEnumerator());
+        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.Provider).Returns(list.Provider);
+        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.ElementType).Returns(list.ElementType);
+        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.Expression).Returns(list.Expression);
+        //    mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
+
+        //    Movie movie = new Movie()
+        //    {
+        //        MovieId = 1,
+        //        Title = "Jaws II"
+
+        //    };
+
+           
+        //    MoviesController controller = new MoviesController(mockContext.Object);
+        //    RedirectToRouteResult result = controller.Edit(movie) as RedirectToRouteResult;
+
+        //    //Assert
+        //    Assert.IsNotNull(result);
+        //    Assert.AreEqual("Index", result.RouteValues["Action"]);
+        //}
+
         //EDIT
         [TestMethod]
         public void MovieStore_Edit_BadRequest()
@@ -300,12 +371,13 @@ namespace MovieStore.Tests.Controllers
             MoviesController controller = new MoviesController(mockContext.Object);
 
             //Act
-            ViewResult result = controller.ListFromDb() as ViewResult;
-            List<Movie> resultModel = result.Model as List<Movie>;
+            ViewResult result = controller.Delete(1) as ViewResult;
 
             //Assert
             Assert.IsNotNull(result);
         }
+
+        //TODO: MovieStore_Delete_Post_Success
 
         [TestMethod]
         public void MovieStore_Delete_BadRequest()
