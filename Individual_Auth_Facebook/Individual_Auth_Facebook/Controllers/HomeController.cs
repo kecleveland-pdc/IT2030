@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Individual_Auth_Facebook.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()
