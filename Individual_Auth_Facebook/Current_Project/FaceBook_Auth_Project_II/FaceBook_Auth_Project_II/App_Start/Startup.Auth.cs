@@ -54,9 +54,9 @@ namespace FaceBook_Auth_Project_II
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "308024400044021",
+               appSecret: "33230498789122d3c00f32552d7774ce");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace FaceBook_Auth_Project_II.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()
