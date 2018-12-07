@@ -15,6 +15,7 @@ namespace Clevent.Models
         public DateTime EndDate { get; set; }
         public int MaxTickets { get; set; }
         public int AvailableTickets { get; set; }
+        public Organizer Organizer { get; set; }
 
         [Required]
         public int ZipCode { get; set; }
