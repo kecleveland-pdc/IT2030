@@ -7,7 +7,7 @@ namespace Clevent.Models
 {
     public class EventType
     {
-        public int EventTypeID { get; set; }
-        public string EventName { get; set; }
+        public int TypeOfEventID { get; set; }
+        public string TypeOfEvent { get; set; }
     }
 }

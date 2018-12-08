@@ -26,5 +26,7 @@ namespace Clevent.Models
         public System.Data.Entity.DbSet<Clevent.Models.Organizer> Organizers { get; set; }
 
         public System.Data.Entity.DbSet<Clevent.Models.Order> Orders { get; set; }
+
+        public System.Data.Entity.DbSet<Clevent.Models.EventType> EventTypes { get; set; }
     }
 }
