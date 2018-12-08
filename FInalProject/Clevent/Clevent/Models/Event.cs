@@ -12,15 +12,10 @@ namespace Clevent.Models
     {
         [DisplayName("Event ID")]
         public virtual int EventID { get; set; }
-
         public virtual int OrganizerID { get; set; }
-
         public virtual int TypeOfEventID {get; set;}
 
-        [Required]
         public virtual Organizer Organizer { get; set; }
-
-        [Required]
         public virtual EventType TypeOfEvent { get; set; }
 
         [Required]
