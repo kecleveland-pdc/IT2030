@@ -15,13 +15,13 @@ namespace Clevent.Models
 
         public virtual int OrganizerID { get; set; }
 
-        public virtual int EventTypeID {get; set;}
+        public virtual int TypeOfEventID {get; set;}
 
         [Required]
-        public Organizer Organizer { get; set; }
+        public virtual Organizer Organizer { get; set; }
 
         [Required]
-        public EventType EventType { get; set; }
+        public virtual EventType TypeOfEvent { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Event title must be 50 characters or less.")]

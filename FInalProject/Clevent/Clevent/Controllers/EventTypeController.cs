@@ -46,7 +46,7 @@ namespace Clevent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventTypeID,EventName")] EventType eventType)
+        public ActionResult Create([Bind(Include = "TypeOfEventID,EventName")] EventType eventType)
         {
             if (ModelState.IsValid)
             {

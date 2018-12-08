@@ -17,7 +17,7 @@ namespace Clevent.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            var events = db.Events.Include(e => e.Organizer).Include(e => e.EventType);
+            var events = db.Events.Include(e => e.Organizer).Include(e => e.TypeOfEventID);
             return View(events.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace Clevent.Controllers
         public ActionResult Create()
         {
             ViewBag.OrganizerID = new SelectList(db.Organizers, "OrganizerID", "FirstName");
-            ViewBag.EventTypeID = new SelectList(db.EventTypes, "EventTypeID", "EventType");
+            ViewBag.EventTypeID = new SelectList(db.EventTypes, "TypeOfEventID", "TypeOfEvent");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace Clevent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,EventTypeID,OrganizerID,Title,StartDate,EndDate,MaxTickets,AvailableTickets,ZipCode")] Event @event)
+        public ActionResult Create([Bind(Include = "EventID,TypeOfEventID,OrganizerID,Title,StartDate,EndDate,MaxTickets,AvailableTickets,ZipCode")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace Clevent.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.OrganizerID = new SelectList(db.Organizers, "OrganizerID", "FirstName", @event.OrganizerID);
-            ViewBag.EventTypeID = new SelectList(db.EventTypes, "EventTypeID", "EventType", @event.EventTypeID);
+            ViewBag.EventTypeID = new SelectList(db.EventTypes, "TypeOfEventID", "TypeOfEvent", @event.TypeOfEventID);
             return View(@event);
         }
 
@@ -75,7 +75,7 @@ namespace Clevent.Controllers
                 return HttpNotFound();
             }
             ViewBag.OrganizerID = new SelectList(db.Organizers, "OrganizerID", "FirstName", @event.OrganizerID);
-            ViewBag.EventTypeID = new SelectList(db.EventTypes, "EventTypeID", "EventType", @event.EventTypeID);
+            ViewBag.EventTypeID = new SelectList(db.EventTypes, "TypeOfEventID", "TypeOfEvent", @event.TypeOfEventID);
             return View(@event);
         }
 
@@ -84,7 +84,7 @@ namespace Clevent.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,EventTypeID,OrganizerID,Title,StartDate,EndDate,MaxTickets,AvailableTickets,ZipCode")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,TypeOfEventID,OrganizerID,Title,StartDate,EndDate,MaxTickets,AvailableTickets,ZipCode")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace Clevent.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.OrganizerID = new SelectList(db.Organizers, "OrganizerID", "FirstName", @event.OrganizerID);
-            ViewBag.EventTypeID = new SelectList(db.EventTypes, "EventTypeID", "EventType", @event.EventTypeID);
+            ViewBag.EventTypeID = new SelectList(db.EventTypes, "TypeOfEventID", "TypeOfEvent", @event.TypeOfEventID);
             return View(@event);
         }
 
