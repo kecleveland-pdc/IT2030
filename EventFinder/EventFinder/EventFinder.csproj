@@ -189,14 +189,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventFinderEventsController.cs" />
+    <Compile Include="Controllers\EventFinderEventTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812082342572_InitialCreate.cs" />
+    <Compile Include="Migrations\201812082342572_InitialCreate.Designer.cs">
+      <DependentUpon>201812082342572_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventFinderCart.cs" />
     <Compile Include="Models\EventFinderCartViewModel.cs" />
+    <Compile Include="Models\EventFinderDB.cs" />
     <Compile Include="Models\EventFinderEvent.cs" />
     <Compile Include="Models\EventFinderEventOrder.cs" />
     <Compile Include="Models\EventFinderEventType.cs" />
@@ -277,12 +285,27 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\EventFinderEvents\Create.cshtml" />
+    <Content Include="Views\EventFinderEvents\Delete.cshtml" />
+    <Content Include="Views\EventFinderEvents\Details.cshtml" />
+    <Content Include="Views\EventFinderEvents\Edit.cshtml" />
+    <Content Include="Views\EventFinderEvents\Index.cshtml" />
+    <Content Include="Views\EventFinderEventTypes\Create.cshtml" />
+    <Content Include="Views\EventFinderEventTypes\Delete.cshtml" />
+    <Content Include="Views\EventFinderEventTypes\Details.cshtml" />
+    <Content Include="Views\EventFinderEventTypes\Edit.cshtml" />
+    <Content Include="Views\EventFinderEventTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812082342572_InitialCreate.resx">
+      <DependentUpon>201812082342572_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

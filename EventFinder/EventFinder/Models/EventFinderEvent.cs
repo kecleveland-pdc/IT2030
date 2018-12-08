@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Web.Mvc;
 
 namespace EventFinder.Models
 {
+
     public class EventFinderEvent
     {
-        [DisplayName("Event ID")]
-        public virtual int EventID { get; set; }
-
-        public virtual int EventTypeID { get; set; }
+        [DisplayName("EventID")]
+        public virtual int EventFinderEventID { get; set; }
+        public virtual int EventFinderEventTypeID { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Event title must be 50 characters or less.")]

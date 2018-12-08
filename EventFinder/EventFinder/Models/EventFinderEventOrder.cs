@@ -10,10 +10,10 @@ namespace EventFinder.Models
 {
     public class EventFinderEventOrder
     {
-        public int EventCartID { get; set; }
-        public virtual EventFinderEvent EventID { get; set; }
+        public int EventFinderOrderID { get; set; }
+        public virtual EventFinderEvent EventSelected { get; set; }
         public int Count { get; set; }
-        public int DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
         public EventFinderEvent EventItem { get; set; }
         public Guid OrderNumber { get; set; }
     }

@@ -7,7 +7,7 @@ namespace EventFinder.Models
 {
     public class EventFinderCartViewModel
     {
-        public List<Order> CartItems;
+        public List<EventFinderEventOrder> CartItems;
         public decimal CartTotal;
     }
 }
