@@ -192,6 +192,7 @@
     <Compile Include="Controllers\EventCartController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\EventStoreController.cs" />
+    <Compile Include="Controllers\EventTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -203,9 +204,12 @@
     <Compile Include="Models\CleventDB.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventCart.cs" />
-    <Compile Include="Models\EventTypecs.cs" />
+    <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InvalidCharsAttribute.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MinDateAttribute.cs" />
+    <Compile Include="Models\MinTicketsAttribute.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Organizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -304,6 +308,11 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\EventStore\Index.cshtml" />
+    <Content Include="Views\EventType\Create.cshtml" />
+    <Content Include="Views\EventType\Delete.cshtml" />
+    <Content Include="Views\EventType\Details.cshtml" />
+    <Content Include="Views\EventType\Edit.cshtml" />
+    <Content Include="Views\EventType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
