@@ -1,8 +1,20 @@
 ﻿@model IEnumerable<EventFinder.Models.EventFinderEvent>
 
-@{
-    ViewBag.Title = "View";
-}
+<h2>Index</h2>
 
-<h2>View</h2>
+<div id="lastMinuteDeal">
+    @Ajax.ActionLink(
+        "Check out these last minute deals!", //link text
+        "LastMinuteDeals",  //actionName
+        null, //routeValues
+        new AjaxOptions
+        {
+            UpdateTargetId = "LastMinuteDeal",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET"
+        },
+        new { @class = "btn btn-primary" } //HTML Attributes
+    )
+</div>
+
 

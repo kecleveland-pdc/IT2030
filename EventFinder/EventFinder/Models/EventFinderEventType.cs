@@ -11,6 +11,10 @@ namespace EventFinder.Models
     {
         [DisplayName("EventTypeID")]
         public int EventFinderEventTypeID { get; set; }
+
+        [DisplayName("Event Type")]
+        [Required]
+        [StringLength(50, ErrorMessage = "Event type must be 50 characters or less.")]
         public string EventType { get; set; }       
     }
 }

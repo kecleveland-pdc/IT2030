@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace EventFinder.Models
 {
-
-    public class EventFinderEvent
+    [Bind(Exclude="EventFinderEventID")]
+    public class EventFinderEvent : IValidatableObject
     {
         [DisplayName("EventID")]
         public virtual int EventFinderEventID { get; set; }
@@ -19,7 +19,9 @@ namespace EventFinder.Models
         [StringLength(50, ErrorMessage = "Event title must be 50 characters or less.")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Start Date is required")]
+        [StringLength(150, ErrorMessage = "Event description must be 50 characters or less.")]
+        public string Description { get; set; }
+
         [DisplayName("Event Start Date")]
         public virtual EventFinderEventType EventType { get; set; }
 
@@ -33,6 +35,12 @@ namespace EventFinder.Models
         [DisplayName("Event End Date")]
         public DateTime EndDate { get; set; }
 
+        [Required(ErrorMessage = "Start time required")]
+        public DateTime StartTime { get; set; }
+
+        [Required(ErrorMessage ="End time required")]
+        public DateTime EndTime { get; set; }
+
         [Required]
         [MinTickets(0)]
         public int MaxTickets { get; set; }
@@ -42,13 +50,25 @@ namespace EventFinder.Models
         public int AvailableTickets { get; set; }
 
         [Required]
-        [DisplayName("Zip-Code")]
+        [DisplayName("Address")]
+        public string Address { get; set; }
+
         public int ZipCode { get; set; }
+
+        [Required]
+        [DisplayName("First and Last Name")]
+        [StringLength(50, ErrorMessage = "First and Last Name must be 100 characters or less.")]
+        public string OrganizerName { get; set; }
 
         [Required]
         [DisplayName("Contact")]
         public string OrganizerEmail { get; set; }
 
+
+        public String ConvertToStringDate(DateTime startDate)
+        {
+            return "";
+        }
 
         //Self-validating object 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -59,9 +79,18 @@ namespace EventFinder.Models
 
             if (StartDate < currentDate || EndDate < currentDate)
             {
-                yield return (new ValidationResult("Date cannot be in the past ", new[] { "Start date" }));
+                yield return (new ValidationResult("Date cannot be in the past ", new[] { "StartDate", "EndDate" }));
             }
 
+            if(EndDate < StartDate)
+            {
+                yield return (new ValidationResult("Start date cannot begin after end date", new[] { "StartDate", "EndDate"}));
+            }
+
+            if(StartDate == EndDate)
+            {
+                yield return (new ValidationResult("Start date and End date cannot be the same", new[] { "StartDate", "EndDate" }));
+            }
         }
     }
 }

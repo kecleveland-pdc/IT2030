@@ -48,7 +48,7 @@ namespace EventFinder.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventFinderEventID,EventFinderEventTypeID,Title,StartDate,EndDate,MaxTickets,AvailableTickets,ZipCode,OrganizerEmail")] EventFinderEvent eventFinderEvent)
+        public ActionResult Create([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,Address,ZipCode,OrganizerName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +57,9 @@ namespace EventFinder.Controllers
                 return RedirectToAction("Index");
             }
 
+            var errors = ModelState.Select(x => x.Value.Errors)
+                          .Where(y => y.Count > 0)
+                          .ToList();
             ViewBag.EventFinderEventTypeID = new SelectList(db.EventFinderEventTypes, "EventFinderEventTypeID", "EventType", eventFinderEvent.EventFinderEventTypeID);
             return View(eventFinderEvent);
         }
@@ -82,7 +85,7 @@ namespace EventFinder.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventFinderEventID,EventFinderEventTypeID,Title,StartDate,EndDate,MaxTickets,AvailableTickets,ZipCode,OrganizerEmail")] EventFinderEvent eventFinderEvent)
+        public ActionResult Edit([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,Address,ZipCode,OrganizerName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
         {
             if (ModelState.IsValid)
             {

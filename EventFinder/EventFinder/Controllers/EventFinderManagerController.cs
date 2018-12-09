@@ -18,7 +18,19 @@ namespace EventFinder.Controllers
         public ActionResult Index()
         {
             var eventFinderEvents = db.EventFinderEvents.Include(e => e.EventType);
-            return View(eventFinderEvents.ToList());
+            return View("Index");
+        }
+
+        public ActionResult LastMinuteDeals()
+        {
+            var lastMinuteDeals = GetLastMinuteDeals();
+            return PartialView("_LastMinuteDeals", lastMinuteDeals);
+        }
+
+        private List<EventFinderEvent> GetLastMinuteDeals()
+        {
+            List<EventFinderEvent> lastMinuteDeals = db.EventFinderEvents.OrderBy(a => a.EventFinderEventID).ToList();
+            return lastMinuteDeals;
         }
 
         // GET: EventFinderManager/Details/5
@@ -33,7 +45,7 @@ namespace EventFinder.Controllers
             {
                 return HttpNotFound();
             }
-            return View(eventFinderEvent);
+            return View("Index");
         }
 
         // GET: EventFinderManager/Create
