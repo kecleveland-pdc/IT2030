@@ -22,5 +22,7 @@ namespace EventFinder.Models
         public System.Data.Entity.DbSet<EventFinder.Models.EventFinderEvent> EventFinderEvents { get; set; }
 
         public System.Data.Entity.DbSet<EventFinder.Models.EventFinderEventType> EventFinderEventTypes { get; set; }
+
+        public System.Data.Entity.DbSet<EventFinder.Models.EventFinderCart> EventFinderCarts { get; set; }
     }
 }

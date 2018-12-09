@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<EventFinder.Models.EventFinderEvent>
 
 <div id="eventfindermanager-image">
-    <img src="https://via.placeholder.com/750x250" alt="placeholder image" />
+    <img id="hero-image" src="~/Content/resources/images/community.jpg" alt="people at gathering with hands raised" />
 </div>
 <div class="row">
     <div class="col-md-8">
-        <h4>Find Events</h4>
+        <h4>Search Events</h4>
        <!-- <form class="form-inline">-->
             @using (
                 Ajax.BeginForm("SearchByEventTypeEventLocation", "EventFinderManager",

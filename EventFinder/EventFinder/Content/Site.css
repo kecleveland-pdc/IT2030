@@ -29,6 +29,19 @@ textarea {
 * {
     font-family: 'Karla', sans-serif;
 }
+
+/* HERO */
+
+#eventfindermanager-image{
+    width: 100%;
+    height: 50px;
+}
+
+#hero-image{
+    width: 100%;
+    height: auto;
+}
+
 /* HEADERS */
 h4{
     
