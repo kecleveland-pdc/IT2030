@@ -3,11 +3,8 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
-    <h4>EventFinderEvent</h4>
+    <h4>Selected Event</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -133,11 +130,11 @@
 
     </dl>
 </div>
-@*@Html.ActionLink("Add to cart",
-        "AddToCart", "ShoppingCart",
-        new { id = Model.Title },
+@Html.ActionLink("Register for this event",
+        "RegisterForEvent", "EventFinderCarts",
+        new { id = Model.EventFinderEventID },
         new { @class = "btn btn primary" }
-)*@
+)
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventFinderEventID }) |

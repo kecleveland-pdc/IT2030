@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EvenFinderStoreController.cs" />
+    <Compile Include="Controllers\EventFinderCartsController.cs" />
     <Compile Include="Controllers\EventFinderEventsController.cs" />
     <Compile Include="Controllers\EventFinderEventTypesController.cs" />
     <Compile Include="Controllers\EventFinderManagerController.cs" />
@@ -210,13 +211,18 @@
     <Compile Include="Migrations\201812090323437_EventFinderDBMigration_2.Designer.cs">
       <DependentUpon>201812090323437_EventFinderDBMigration_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812091837206_EventFinderDB_Migration4.cs" />
+    <Compile Include="Migrations\201812091837206_EventFinderDB_Migration4.Designer.cs">
+      <DependentUpon>201812091837206_EventFinderDB_Migration4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventFinderCart.cs" />
     <Compile Include="Models\EventFinderCartViewModel.cs" />
     <Compile Include="Models\EventFinderDB.cs" />
     <Compile Include="Models\EventFinderEvent.cs" />
-    <Compile Include="Models\EventFinderEventOrder.cs" />
+    <Compile Include="Models\EventFinderEventShoppingCart.cs" />
+    <Compile Include="Models\EventFinderShoppingCartRemoveViewModel.cs" />
     <Compile Include="Models\EventFinderEventType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -311,6 +317,7 @@
     <Content Include="Views\EventFinderManager\Index.cshtml" />
     <Content Include="Views\EventFinderManager\_LastMinuteDeals.cshtml" />
     <Content Include="Views\EventFinderManager\_SearchByQueries.cshtml" />
+    <Content Include="Views\EventFinderCarts\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812090323437_EventFinderDBMigration_2.resx">
       <DependentUpon>201812090323437_EventFinderDBMigration_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091837206_EventFinderDB_Migration4.resx">
+      <DependentUpon>201812091837206_EventFinderDB_Migration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
