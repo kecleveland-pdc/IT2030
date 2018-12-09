@@ -1,24 +1,56 @@
 ﻿@model IEnumerable<EventFinder.Models.EventFinderEvent>
 
-<h2>Index</h2>
-
-<div id="lastMinuteDeal">
-    @Ajax.ActionLink(
-        "Check out these last minute deals!", //link text
-        "LastMinuteDeals",  //actionName
-        null, //routeValues
-        new AjaxOptions
-        {
-            UpdateTargetId = "lastMinuteDeal",
-            InsertionMode = InsertionMode.Replace,
-            HttpMethod = "GET"
-        },
-        new { @class = "btn btn-primary" } //HTML Attributes
-    )
+<div id="eventfindermanager-image">
+    <img src="https://via.placeholder.com/750x250" alt="placeholder image" />
 </div>
+<div class="row">
+    <div class="col-md-8">
+        <h4>Find Events</h4>
+       <!-- <form class="form-inline">-->
+            @using (
+                Ajax.BeginForm("SearchByEventTypeEventLocation", "EventFinderManager",
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "GET",
+                        UpdateTargetId = "eventfinderevents-search",
+                        OnFailure = "searchFailed"
+                    },
+                    new {@class="form-inline" }
+                )
+            )
+            {
+                <label class="sr-only" for="inlineFormInput">Event type</label>
+                <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="eventType" placeholder="music, art, sports...">
+                @*<label class="sr-only" for="inlineFormInput">State</label>
+                <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name = "location" placeholder="OH, DC, Atlanta...">*@
+                <input type="submit" class="btn btn-primary" value="search" />
+            }
+       <!-- </form>-->
+        <div id="eventfinderevents-search">
 
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div id="eventfindermanager-lastmin">
+            <h4>Check out these last minute deals!</h4>
+            @Ajax.ActionLink(
+            "See deals", //link text
+            "LastMinuteDeals",  //actionName
+            null, //routeValues
+            new AjaxOptions
+            {
+                UpdateTargetId = "eventfindermanager-lastmin",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-primary .eventfindermanager-btn" } //HTML Attributes
+        )
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/Apps/MusicStoreScript.js"></script>
+    <script src="~/Scripts/Apps/EventFinder.js"></script>
 }

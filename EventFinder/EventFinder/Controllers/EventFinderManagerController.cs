@@ -21,6 +21,18 @@ namespace EventFinder.Controllers
             return View("Index");
         }
 
+        public ActionResult SearchByEventTypeEventLocation(string eventType)
+        {
+            var events = GetEventsByEventLocationEventType(eventType);
+            return PartialView("_SearchByQueries", events);
+        }
+
+        private List<EventFinderEvent> GetEventsByEventLocationEventType(string eventType)
+        {
+            return db.EventFinderEvents.Where(e => e.EventType.EventType.Contains(eventType)
+                                             ).ToList();
+        }
+
         public ActionResult LastMinuteDeals()
         {
             var lastMinuteDeals = GetLastMinuteDeals();
