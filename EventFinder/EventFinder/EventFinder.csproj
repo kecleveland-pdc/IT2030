@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201812091837206_EventFinderDB_Migration4.Designer.cs">
       <DependentUpon>201812091837206_EventFinderDB_Migration4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812092200418_EventFinderDB_Migration5.cs" />
+    <Compile Include="Migrations\201812092200418_EventFinderDB_Migration5.Designer.cs">
+      <DependentUpon>201812092200418_EventFinderDB_Migration5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventFinderCart.cs" />
@@ -222,6 +226,7 @@
     <Compile Include="Models\EventFinderDB.cs" />
     <Compile Include="Models\EventFinderEvent.cs" />
     <Compile Include="Models\EventFinderEventShoppingCart.cs" />
+    <Compile Include="Models\EventFinderRegisterViewModel.cs" />
     <Compile Include="Models\EventFinderShoppingCartRemoveViewModel.cs" />
     <Compile Include="Models\EventFinderEventType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -235,6 +240,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\resources\images\colorful_party.jpg" />
+    <Content Include="Content\resources\images\community.jpg" />
+    <Content Include="Content\resources\images\party.jpg" />
+    <Content Include="Content\resources\images\rock_hands.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -317,7 +326,9 @@
     <Content Include="Views\EventFinderManager\Index.cshtml" />
     <Content Include="Views\EventFinderManager\_LastMinuteDeals.cshtml" />
     <Content Include="Views\EventFinderManager\_SearchByQueries.cshtml" />
-    <Content Include="Views\EventFinderCarts\View.cshtml" />
+    <Content Include="Views\EventFinderCarts\Index.cshtml" />
+    <Content Include="Views\EventFinderCarts\Register.cshtml" />
+    <Content Include="Views\EventFinderCarts\OrderSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -338,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812091837206_EventFinderDB_Migration4.resx">
       <DependentUpon>201812091837206_EventFinderDB_Migration4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812092200418_EventFinderDB_Migration5.resx">
+      <DependentUpon>201812092200418_EventFinderDB_Migration5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventFinder.Models;
+using System.Data.Entity.Infrastructure;
 
 namespace EventFinder.Controllers
 {
@@ -48,7 +49,7 @@ namespace EventFinder.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,Address,ZipCode,OrganizerName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
+        public ActionResult Create([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,City,State,ZipCode,FirstName,LastName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
         {
             if (ModelState.IsValid)
             {
@@ -85,12 +86,27 @@ namespace EventFinder.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,Address,ZipCode,OrganizerName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
+        public ActionResult Edit([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,City,State,ZipCode,FirstName,LastName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
         {
             if (ModelState.IsValid)
             {
+                bool saveFailed;
                 db.Entry(eventFinderEvent).State = EntityState.Modified;
-                db.SaveChanges();
+                do
+                {
+                    saveFailed = false;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbUpdateConcurrencyException ex)
+                    {
+                        saveFailed = true;
+                        // Update the values of the entity that failed to save from the store
+                        ex.Entries.Single().Reload();
+                    }
+                }
+                while (saveFailed);     
                 return RedirectToAction("Index");
             }
             ViewBag.EventFinderEventTypeID = new SelectList(db.EventFinderEventTypes, "EventFinderEventTypeID", "EventType", eventFinderEvent.EventFinderEventTypeID);

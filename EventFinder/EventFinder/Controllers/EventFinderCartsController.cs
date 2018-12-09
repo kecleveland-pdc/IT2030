@@ -26,13 +26,41 @@ namespace EventFinder.Controllers
             return View(vm);
         }
 
+        public ActionResult OrderSummary()
+        {
+            EventFinderEventShoppingCart cart = EventFinderEventShoppingCart.GetCart(this.HttpContext); // session variable
+            EventFinderCartViewModel vm = new EventFinderCartViewModel()
+            {
+                CartItems = cart.GetCartItems(),
+            };
+
+            return View(vm);
+        }
+
+        //GET: /EventFinderCart/Register/5
+        // GET: EventFinderEvents/Details/5
+        public ActionResult Register(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EventFinderEvent eventFinderEvent = dbContext.EventFinderEvents.Find(id);
+            if (eventFinderEvent == null)
+            {
+                return HttpNotFound();
+            }
+            return View(eventFinderEvent);
+        }
+
+
         //GET: /ShoppingCart/AddToCart/5
         public ActionResult AddToCart(int id)
         {
             //id is EventID
             EventFinderEventShoppingCart cart = EventFinderEventShoppingCart.GetCart(this.HttpContext);
             cart.AddToCart(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("OrderSummary");
         }
 
         //Ajax Call

@@ -52,7 +52,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StartTime)
+            @Html.DisplayFor(model => model.StartTime.Hour):@Html.DisplayFor(model => model.StartTime.Minute)
         </dd>
 
         <dt>
@@ -60,10 +60,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EndTime)
+            @Html.DisplayFor(model => model.EndTime.Hour):@Html.DisplayFor(model => model.EndTime.Minute)
         </dd>
-
-
         <dt>
             @Html.DisplayNameFor(model => model.MaxTickets)
         </dt>
@@ -71,7 +69,6 @@
         <dd>
             @Html.DisplayFor(model => model.MaxTickets)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.AvailableTickets)
         </dt>
@@ -131,7 +128,7 @@
     </dl>
 </div>
 @Html.ActionLink("Register for this event",
-        "RegisterForEvent", "EventFinderCarts",
+        "Register", "EventFinderCarts",
         new { id = Model.EventFinderEventID },
         new { @class = "btn btn primary" }
 )

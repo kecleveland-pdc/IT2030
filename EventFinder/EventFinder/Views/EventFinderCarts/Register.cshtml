@@ -1,0 +1,47 @@
+﻿@model EventFinder.Models.EventFinderEvent
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h4>Checkout</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate.Date)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.NumberOfTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfTickets)
+        </dd>*@
+    </dl>
+</div>
+
+<p>
+@Html.ActionLink("Checkout",
+        "AddToCart", "EventFinderCarts",
+        new { id = @Model.EventFinderEventID},
+        new { @class = "btn btn primary" }
+)
+
+@Html.ActionLink("Cancel",
+        "Index", "EventFinderManager",
+        new { @class = "btn btn primary" }
+)
+</p>

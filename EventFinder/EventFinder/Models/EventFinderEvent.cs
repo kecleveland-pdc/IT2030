@@ -22,21 +22,26 @@ namespace EventFinder.Models
         [StringLength(150, ErrorMessage = "Event description must be 50 characters or less.")]
         public string Description { get; set; }
 
-        [DisplayName("Event Type")]
+        [DisplayName("Type")]
         public virtual EventFinderEventType EventType { get; set; }
 
         [Required(ErrorMessage = "Start Date is required")]
-        [DisplayName("Event Start Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayName("Start")]
         public DateTime StartDate { get; set; }
 
-
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "End Date is required")]
-        [DisplayName("Event End Date")]
+        [DisplayName("End")]
         public DateTime EndDate { get; set; }
 
+        [DisplayFormat(DataFormatString = @"{0:hh\:mm}")]
+        [DisplayName("Start Time")]
         [Required(ErrorMessage = "Start time required")]
         public DateTime StartTime { get; set; }
 
+        [DisplayFormat(DataFormatString = @"{0:hh\:mm}")]
+        [DisplayName("End Time")]
         [Required(ErrorMessage ="End time required")]
         public DateTime EndTime { get; set; }
 
@@ -70,11 +75,8 @@ namespace EventFinder.Models
         [DisplayName("Contact")]
         public string OrganizerEmail { get; set; }
 
-
-        public String ConvertToStringDate(DateTime startDate)
-        {
-            return "";
-        }
+        [DisplayName("Tickets")]
+        public int AmountOfTickets { get; set; }
 
         //Self-validating object 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
