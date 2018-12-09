@@ -1,0 +1,21 @@
+﻿@model IEnumerable<EventFinder.Models.EventFinderEvent>
+
+<h2>Daily Deal</h2>
+<div>
+    <div class="panel-heading">
+        Here are some last minute deals!
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="panel-body">
+            <p>Title: item.Title</p>
+            <p>Price: item.Description</p>
+        </div>
+    }
+  
+    @*@Html.ActionLink("Add to cart",
+        "AddToCart", "ShoppingCart",
+        new { id = Model.Title },
+        new { @class = "btn btn primary" }
+    )*@
+</div>
