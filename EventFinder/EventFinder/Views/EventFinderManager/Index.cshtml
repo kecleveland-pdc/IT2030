@@ -9,7 +9,7 @@
         null, //routeValues
         new AjaxOptions
         {
-            UpdateTargetId = "LastMinuteDeal",
+            UpdateTargetId = "lastMinuteDeal",
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "GET"
         },
@@ -18,3 +18,7 @@
 </div>
 
 
+@section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Apps/MusicStoreScript.js"></script>
+}

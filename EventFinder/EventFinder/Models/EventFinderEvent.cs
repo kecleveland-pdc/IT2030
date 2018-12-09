@@ -15,16 +15,15 @@ namespace EventFinder.Models
         public virtual int EventFinderEventID { get; set; }
         public virtual int EventFinderEventTypeID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Title of event is required")]
         [StringLength(50, ErrorMessage = "Event title must be 50 characters or less.")]
         public string Title { get; set; }
 
         [StringLength(150, ErrorMessage = "Event description must be 50 characters or less.")]
         public string Description { get; set; }
 
-        [DisplayName("Event Start Date")]
+        [DisplayName("Event Type")]
         public virtual EventFinderEventType EventType { get; set; }
-
 
         [Required(ErrorMessage = "Start Date is required")]
         [DisplayName("Event Start Date")]
@@ -41,24 +40,31 @@ namespace EventFinder.Models
         [Required(ErrorMessage ="End time required")]
         public DateTime EndTime { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Maximum amount of tickets for event is required")]
         [MinTickets(0)]
         public int MaxTickets { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Available tickets is required.")]
         [MinTickets(0)]
         public int AvailableTickets { get; set; }
 
-        [Required]
-        [DisplayName("Address")]
-        public string Address { get; set; }
+        [Required(ErrorMessage="State is required")]
+        [MaxLength(2, ErrorMessage ="Enter 2-character state abbreviation (eg. Ohio = OH")]
+        public string State { get; set; }
+
+        [Required(ErrorMessage = "City is required")]
+        [MaxLength(35, ErrorMessage ="City name must be shorter than 36 characters")]
+        public string City { get; set; }
 
         public int ZipCode { get; set; }
 
-        [Required]
-        [DisplayName("First and Last Name")]
-        [StringLength(50, ErrorMessage = "First and Last Name must be 100 characters or less.")]
-        public string OrganizerName { get; set; }
+        [Required(ErrorMessage = "First Name is required")]
+        [StringLength(50, ErrorMessage ="First Name must be 50 characters or less.")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name is required")]
+        [StringLength(50, ErrorMessage = "Last Name must be 50 characters or less.")]
+        public string LastName { get; set; }
 
         [Required]
         [DisplayName("Contact")]
