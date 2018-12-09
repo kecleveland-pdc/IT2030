@@ -40,7 +40,7 @@ namespace EventFinder.Models
         [Required(ErrorMessage = "Start time required")]
         public DateTime StartTime { get; set; }
 
-        [DisplayFormat(DataFormatString = @"{0:hh\:mm}")]
+        [DisplayFormat(DataFormatString = @"{0:HH\:mm}")]
         [DisplayName("End Time")]
         [Required(ErrorMessage ="End time required")]
         public DateTime EndTime { get; set; }

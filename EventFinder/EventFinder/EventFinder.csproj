@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201812092200418_EventFinderDB_Migration5.Designer.cs">
       <DependentUpon>201812092200418_EventFinderDB_Migration5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812092315235_EventFinderDB_Seed.cs" />
+    <Compile Include="Migrations\201812092315235_EventFinderDB_Seed.Designer.cs">
+      <DependentUpon>201812092315235_EventFinderDB_Seed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventFinderCart.cs" />
@@ -232,6 +236,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MinTicketsAttribute.cs" />
+    <Compile Include="Models\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -352,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812092200418_EventFinderDB_Migration5.resx">
       <DependentUpon>201812092200418_EventFinderDB_Migration5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812092315235_EventFinderDB_Seed.resx">
+      <DependentUpon>201812092315235_EventFinderDB_Seed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

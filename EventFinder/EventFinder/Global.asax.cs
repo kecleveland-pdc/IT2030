@@ -15,6 +15,7 @@ namespace EventFinder
         protected void Application_Start()
         {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EventFinderDB>());
+            Database.SetInitializer(new SeedData());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
