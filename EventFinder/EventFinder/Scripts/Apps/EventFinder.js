@@ -7,7 +7,7 @@ $(function () {
     $(".RemoveLink").click(function () {
         console.log("clicked");
         var id = $(this).attr("data-id");
-        $.post("/ShoppingCart/RemoveFromCart", { "id": id }, function (data) {
+        $.post("/EventFinderCarts/RemoveFromCart", { "id": id }, function (data) {
             //populate elements in my view with data from the controller
             $("#update-message").text(data.Message);
             $("#cart-total").text(data.CartTotal);
