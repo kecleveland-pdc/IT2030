@@ -84,11 +84,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.City)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
         </dd>
 
         <dt>
@@ -100,11 +108,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrganizerName)
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrganizerName)
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
@@ -117,6 +133,12 @@
 
     </dl>
 </div>
+@*@Html.ActionLink("Add to cart",
+        "AddToCart", "ShoppingCart",
+        new { id = Model.Title },
+        new { @class = "btn btn primary" }
+)*@
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventFinderEventID }) |
     @Html.ActionLink("Back to List", "Index")

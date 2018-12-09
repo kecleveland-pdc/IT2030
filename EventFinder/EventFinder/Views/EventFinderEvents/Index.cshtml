@@ -39,13 +39,7 @@
             @Html.DisplayNameFor(model => model.AvailableTickets)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.ZipCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrganizerName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OrganizerEmail)
@@ -88,12 +82,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ZipCode)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrganizerName)
-        </td>
+      
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EventFinderEventID }) |
             @Html.ActionLink("Details", "Details", new { id=item.EventFinderEventID }) |

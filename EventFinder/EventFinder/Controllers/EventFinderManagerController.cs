@@ -21,6 +21,18 @@ namespace EventFinder.Controllers
             return View("Index");
         }
 
+        public ActionResult SearchByEventTypeEventLocation(string eventType)
+        {
+            var events = GetEventsByEventLocationEventType(eventType);
+            return PartialView("_SearchByQueries", events);
+        }
+
+        private List<EventFinderEvent> GetEventsByEventLocationEventType(string eventType)
+        {
+            return db.EventFinderEvents.Where(e => e.EventType.EventType.Contains(eventType)
+                                             ).ToList();
+        }
+
         public ActionResult LastMinuteDeals()
         {
             var lastMinuteDeals = GetLastMinuteDeals();
@@ -29,7 +41,12 @@ namespace EventFinder.Controllers
 
         private List<EventFinderEvent> GetLastMinuteDeals()
         {
-            List<EventFinderEvent> lastMinuteDeals = db.EventFinderEvents.OrderBy(a => a.EventFinderEventID).ToList();
+            var currentDate = DateTime.Now;
+            var futureDate = DateTime.Now.AddDays(50);
+            //StartDate is later than Now
+            //StartDate is before date in future
+            var lastMinuteDeals = db.EventFinderEvents.Where(a => (DateTime.Compare(a.StartDate, currentDate) >= 0)
+                                         && (DateTime.Compare(a.StartDate, futureDate) <= 0)).ToList();
             return lastMinuteDeals;
         }
 

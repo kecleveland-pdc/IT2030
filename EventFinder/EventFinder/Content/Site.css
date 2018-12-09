@@ -22,3 +22,22 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*********EVENT FINDER*********/
+
+* {
+    font-family: 'Karla', sans-serif;
+}
+/* HEADERS */
+h4{
+    
+}
+
+/*EVENTFINDER PAGES*/
+.eventfindermanager-btn {
+}
+
+.eventfindermanager-image{
+    max-width: 100%;
+}
