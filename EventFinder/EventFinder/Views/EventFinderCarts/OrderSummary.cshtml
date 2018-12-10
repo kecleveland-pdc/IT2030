@@ -5,14 +5,14 @@
     ViewBag.Title = "OrderSummary";
 }
 
-<h4>OrderSummary</h4>
+<h4>ORDER SUMMARY</h4>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">Order #</th>
             <th scope="col">Event Title</th>
             <th scope="col"># of Tickets</th>
-            <th scope="col"></th>
+            <th scope="col">Status</th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -20,14 +20,20 @@
         @foreach (var item in Model.CartItems)
         {
             <tr>
-                <td>@item.RecordID.</td>
-                <td>@item.EventSelected.Title</td>
+                <td>#@item.RecordID</td>
+                <td>
+                    @Html.ActionLink(@item.EventSelected.Title,
+                              "Details", "EventFinderEvents",
+                              new { id = @item.EventFinderEventID },
+                              new { @class = "btn btn primary" })
+                </td>
                 <td id="item-count-@item.RecordID">@item.Count</td>
+                <td id=""></td>
             </tr>
-        }
-      
+        }    
     </tbody>
 </table>
+
 
 <p class="button">
     @Html.ActionLink(

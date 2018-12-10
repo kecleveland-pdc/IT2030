@@ -4,19 +4,31 @@
     <div class="panel-heading">
         <h4>Events</h4>
     </div>
-    @foreach (var item in Model)
-    {
-        <div class="panel-body">
-            <p>
-                Title:@Html.ActionLink(@item.Title,
-                    "Details", "EventFinderEvents",
-                    new { id = @item.EventFinderEventID },
-                    new { @class = "btn btn primary" })
-            </p>
-            <p>Start Date: @item.StartDate</p>
-            <p>Start Time: @item.StartTime</p>
-            <p>Event Location: @item.City,@item.State</p>
-        </div>
-    }
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                    @Html.ActionLink(@item.Title,
+                              "Details", "EventFinderEvents",
+                              new { id = @item.EventFinderEventID },
+                              new { @class = "btn btn primary" })                  
+                    </td>
+                    <td>@item.StartDate</td>
+                    <td> @item.StartTime</td>
+                    <td>@item.City, @item.State</td>
+                </tr>
+                }
+            </tbody>
+        </table>   
 </div>
 

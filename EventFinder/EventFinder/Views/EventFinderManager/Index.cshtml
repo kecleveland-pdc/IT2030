@@ -33,9 +33,9 @@
     </div>
     <div class="col-md-4">
         <div id="eventfindermanager-lastmin">
-            <h4>Check out these last minute deals!</h4>
+            <h4>Last minute deals!</h4>
             @Ajax.ActionLink(
-            "See deals", //link text
+            "Check out these last minute deals!", //link text
             "LastMinuteDeals",  //actionName
             null, //routeValues
             new AjaxOptions
@@ -45,7 +45,7 @@
                 HttpMethod = "GET"
             },
             new { @class = "btn btn-primary .eventfindermanager-btn" } //HTML Attributes
-        )
+            )
         </div>
     </div>
 </div>

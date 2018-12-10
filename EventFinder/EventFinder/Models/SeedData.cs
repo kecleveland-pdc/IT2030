@@ -8,39 +8,20 @@ using System.Data.Entity.Validation;
 
 namespace EventFinder.Models
 {
-    public class SeedData : DropCreateDatabaseIfModelChanges<EventFinderDB>
+    public class SeedData : DropCreateDatabaseAlways<EventFinderDB>
     {
         protected override void Seed(EventFinderDB context)
         {
             try
             {
                 var eventTypes = new List<EventFinderEventType>
-            {
-                new EventFinderEventType {EventType ="Music" },
-                new EventFinderEventType {EventType ="Art" },
-                new EventFinderEventType {EventType ="Sports" },
-                new EventFinderEventType {EventType ="Health" },
-                new EventFinderEventType {EventType ="Classes" },
-                new EventFinderEventType {EventType ="Political" },
-                new EventFinderEventType {EventType ="Social" },
-                new EventFinderEventType {EventType ="Government" },
-                new EventFinderEventType {EventType ="Environment" },
-                new EventFinderEventType {EventType ="Food" }
-            };
-
-                new List<EventFinderEventType>
-            {
-                new EventFinderEventType {EventType ="Music" },
-                new EventFinderEventType {EventType ="Art" },
-                new EventFinderEventType {EventType ="Sports" },
-                new EventFinderEventType {EventType ="Health" },
-                new EventFinderEventType {EventType ="Classes" },
-                new EventFinderEventType {EventType ="Political" },
-                new EventFinderEventType {EventType ="Social" },
-                new EventFinderEventType {EventType ="Government" },
-                new EventFinderEventType {EventType ="Environment" },
-                new EventFinderEventType {EventType ="Food" }
-            }.ForEach(a => context.EventFinderEventTypes.Add(a));
+                {
+                    new EventFinderEventType {EventType ="Music" },
+                    new EventFinderEventType {EventType ="Art" },
+                    new EventFinderEventType {EventType ="Sports" },
+                    new EventFinderEventType {EventType ="Health" },
+                    new EventFinderEventType {EventType ="Social" },
+                };
 
                 new List<EventFinderEvent>
                 {
@@ -292,7 +273,7 @@ namespace EventFinder.Models
 
                new EventFinderEvent
                {
-                    EventFinderEventTypeID = 7,
+                    EventFinderEventTypeID = 5,
                     EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "NYE Party",
                     StartDate = DateTime.Now,
@@ -313,7 +294,7 @@ namespace EventFinder.Models
 
                new EventFinderEvent
                {
-                    EventFinderEventTypeID = 7,
+                    EventFinderEventTypeID = 5,
                     EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "NYE Party Cleveland",
                     StartDate = DateTime.Now,
@@ -334,7 +315,7 @@ namespace EventFinder.Models
 
                new EventFinderEvent
                {
-                    EventFinderEventTypeID = 7,
+                    EventFinderEventTypeID = 5,
                     EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "Chicago New Year's Eve Party",
                     StartDate = DateTime.Now,
@@ -355,7 +336,7 @@ namespace EventFinder.Models
 
                new EventFinderEvent
                {
-                    EventFinderEventTypeID = 7,
+                    EventFinderEventTypeID = 5,
                     EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "Seattle New Year's Eve Party",
                     StartDate = DateTime.Now,
@@ -434,6 +415,48 @@ namespace EventFinder.Models
                     City= "New York City",
                     FirstName = "Josef",
                     LastName = "Dunne",
+                    AmountOfTickets = 0
+               },
+
+                  new EventFinderEvent
+               {
+                    EventFinderEventTypeID = 2,
+                    EventType = eventTypes.Single(e => e.EventType == "Art"),
+                    Title= "Get Your Art On at MOMA",
+                    StartDate = DateTime.Now.AddDays(19),
+                    EndDate = DateTime.Now.AddDays(20),
+                    MaxTickets = 50,
+                    AvailableTickets = 50,
+                    ZipCode = 44102,
+                    OrganizerEmail = "explore@arts.gov",
+                    Description = "Explore Art At MoMA",
+                    StartTime = DateTime.Now.AddDays(5),
+                    EndTime = DateTime.Now.AddDays(6),
+                    State = "NY",
+                    City= "New York City",
+                    FirstName = "Josef",
+                    LastName = "Dunne",
+                    AmountOfTickets = 0
+               },
+
+                   new EventFinderEvent
+               {
+                    EventFinderEventTypeID = 1,
+                    EventType = eventTypes.Single(e => e.EventType == "Music"),
+                    Title= "Enjoy Classical Rock",
+                    StartDate = DateTime.Now.AddDays(30),
+                    EndDate = DateTime.Now.AddDays(31),
+                    MaxTickets = 50,
+                    AvailableTickets = 50,
+                    ZipCode = 43218,
+                    OrganizerEmail = "austinmusic@music.org",
+                    Description = "Listen to great classical rock!",
+                    StartTime = DateTime.Now.AddDays(5),
+                    EndTime = DateTime.Now.AddDays(6),
+                    State = "TX",
+                    City= "Texas",
+                    FirstName = "Marilyn",
+                    LastName = "Dacosta",
                     AmountOfTickets = 0
                }
 
