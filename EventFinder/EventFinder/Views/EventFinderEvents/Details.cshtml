@@ -127,11 +127,24 @@
 
     </dl>
 </div>
-@Html.ActionLink("Register for this event",
-        "Register", "EventFinderCarts",
-        new { id = Model.EventFinderEventID },
-        new { @class = "btn btn primary" }
-)
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Register for this event",
+                "Register", "EventFinderCarts",
+                new { id = Model.EventFinderEventID },
+                new { @class = "btn btn primary" }
+        )
+}
+else
+{
+    @Html.ActionLink("Register for this event",
+                "Login", "Account",
+                new { id = Model.EventFinderEventID },
+                new { @class = "btn btn primary" }
+        )
+}
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventFinderEventID }) |

@@ -31,15 +31,18 @@ textarea {
 }
 
 /* HERO */
-
-#eventfindermanager-image{
-    width: 100%;
-    height: 50px;
+#background-image{
+    margin-top: 5%;
 }
 
 #hero-image{
     width: 100%;
     height: 200px;
+}
+
+#hero-image img{
+    height:auto;
+    width:100%;
 }
 
 /* HEADERS */
@@ -51,6 +54,8 @@ h4{
 .eventfindermanager-btn {
 }
 
-.eventfindermanager-image{
-    max-width: 100%;
+image{
+    max-width: 50%;
+    height: 10%;
 }
+
