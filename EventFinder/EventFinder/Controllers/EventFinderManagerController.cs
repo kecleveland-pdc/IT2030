@@ -42,7 +42,7 @@ namespace EventFinder.Controllers
         private List<EventFinderEvent> GetLastMinuteDeals()
         {
             var currentDate = DateTime.Now;
-            var futureDate = DateTime.Now.AddDays(50);
+            var futureDate = DateTime.Now.AddDays(2);
             //StartDate is later than Now
             //StartDate is before date in future
             var lastMinuteDeals = db.EventFinderEvents.Where(a => (DateTime.Compare(a.StartDate, currentDate) >= 0)

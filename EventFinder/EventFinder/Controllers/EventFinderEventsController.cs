@@ -49,7 +49,7 @@ namespace EventFinder.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,City,State,ZipCode,FirstName,LastName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
+        public ActionResult Create([Bind(Include = "EventFinderEventID,EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,City,State,ZipCode,FirstName,LastName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace EventFinder.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,City,State,ZipCode,FirstName,LastName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
+        public ActionResult Edit([Bind(Include = "EventFinderEventID,EventFinderEventTypeID,Title,Description,StartDate,EndDate,StartTime,EndTime,MaxTickets,AvailableTickets,City,State,ZipCode,FirstName,LastName,OrganizerEmail")] EventFinderEvent eventFinderEvent)
         {
             if (ModelState.IsValid)
             {

@@ -17,7 +17,7 @@
             <th scope="col">Order #</th>
             <th scope="col">Event Title</th>
             <th scope="col"># of Tickets</th>
-            <th scope="col"></th>
+            <th scope="col">Status</th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -25,11 +25,14 @@
         @foreach (var item in Model.CartItems)
         {
            <tr>
-               <td></td>
-               <td>@item.EventSelected.Title</td>
-               <td id="item-count-@item.RecordID">@item.Count</td>
-               <td><a href="#" class="RemoveLink" data-id="@item.RecordID">Details</a></td>
-               <td><a href="#" class="RemoveLink" data-id="@item.RecordID">Remove</a></td>
+               <td>@item.RecordID</td>
+               <td>@Html.ActionLink(@item.EventSelected.Title,
+                              "Details", "EventFinderEvents",
+                              new { id = @item.EventFinderEventID },
+                              new { @class = "btn btn primary" })</td>
+               <td>@item.Count</td>
+               <td id="item-count-@item.RecordID"></td>
+               <td><a href="#" class="RemoveLink" data-id="@item.RecordID">Cancel Order</a></td>
            </tr>
         } 
     </tbody>

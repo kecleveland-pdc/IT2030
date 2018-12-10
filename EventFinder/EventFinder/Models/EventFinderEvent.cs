@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace EventFinder.Models
 {
-    [Bind(Exclude="EventFinderEventID")]
+    
     public class EventFinderEvent : IValidatableObject
     {
         [DisplayName("EventID")]
