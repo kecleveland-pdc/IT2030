@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 
 namespace EventFinder.Models
 {
@@ -10,21 +12,52 @@ namespace EventFinder.Models
     {
         protected override void Seed(EventFinderDB context)
         {
-            new List<EventFinderEvent>
+            try
             {
+                var eventTypes = new List<EventFinderEventType>
+            {
+                new EventFinderEventType {EventType ="Music" },
+                new EventFinderEventType {EventType ="Art" },
+                new EventFinderEventType {EventType ="Sports" },
+                new EventFinderEventType {EventType ="Health" },
+                new EventFinderEventType {EventType ="Classes" },
+                new EventFinderEventType {EventType ="Political" },
+                new EventFinderEventType {EventType ="Social" },
+                new EventFinderEventType {EventType ="Government" },
+                new EventFinderEventType {EventType ="Environment" },
+                new EventFinderEventType {EventType ="Food" }
+            };
+
+                new List<EventFinderEventType>
+            {
+                new EventFinderEventType {EventType ="Music" },
+                new EventFinderEventType {EventType ="Art" },
+                new EventFinderEventType {EventType ="Sports" },
+                new EventFinderEventType {EventType ="Health" },
+                new EventFinderEventType {EventType ="Classes" },
+                new EventFinderEventType {EventType ="Political" },
+                new EventFinderEventType {EventType ="Social" },
+                new EventFinderEventType {EventType ="Government" },
+                new EventFinderEventType {EventType ="Environment" },
+                new EventFinderEventType {EventType ="Food" }
+            }.ForEach(a => context.EventFinderEventTypes.Add(a));
+
+                new List<EventFinderEvent>
+                {
                 new EventFinderEvent
                 {
                     EventFinderEventTypeID = 3,
+                    EventType = eventTypes.Single(e => e.EventType == "Sports"),
                     Title= "Watch the Browns II",
-                    StartDate = DateTime.Now.AddDays(3),
-                    EndDate = DateTime.Now.AddDays(4),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "brownsfan1n@nflcom",
                     Description = "Watch the Browns...again!",
-                    StartTime = DateTime.Now.AddDays(3),
-                    EndTime = DateTime.Now.AddDays(4),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "OH",
                     City= "Cleveland",
                     FirstName = "Bill",
@@ -34,16 +67,17 @@ namespace EventFinder.Models
                 new EventFinderEvent
                 {
                     EventFinderEventTypeID = 3,
+                    EventType = eventTypes.Single(e => e.EventType == "Sports"),
                     Title= "Watch the Browns III",
-                    StartDate = DateTime.Now.AddDays(5),
-                    EndDate = DateTime.Now.AddDays(6),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "brownsfan1n@nflcom",
                     Description = "Watch the Browns...again!",
-                    StartTime = DateTime.Now.AddDays(5),
-                    EndTime = DateTime.Now.AddDays(6),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "OH",
                     City= "Cleveland",
                     FirstName = "Bill",
@@ -53,16 +87,17 @@ namespace EventFinder.Models
                 new EventFinderEvent
                 {
                     EventFinderEventTypeID = 3,
+                    EventType = eventTypes.Single(e => e.EventType == "Sports"),
                     Title= "Watch the Browns IV",
-                    StartDate = DateTime.Now.AddDays(-7),
-                    EndDate = DateTime.Now.AddDays(-6),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail =  "brownsfan1n@nflcom",
                     Description = "Watch the Browns...again!",
-                    StartTime = DateTime.Now.AddDays(-7),
-                    EndTime = DateTime.Now.AddDays(-6),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "OH",
                     City= "Cleveland",
                     FirstName = "Bill",
@@ -72,16 +107,17 @@ namespace EventFinder.Models
                 new EventFinderEvent
                 {
                     EventFinderEventTypeID = 3,
+                    EventType = eventTypes.Single(e => e.EventType == "Sports"),
                     Title= "Watch the Browns V",
-                    StartDate = DateTime.Now.AddDays(27),
-                    EndDate = DateTime.Now.AddDays(28),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "brownsfan1n@nflcom",
                     Description = "Watch the Browns...again!",
-                    StartTime = DateTime.Now.AddDays(27),
-                    EndTime = DateTime.Now.AddDays(28),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "OH",
                     City= "Cleveland",
                     FirstName = "Bill",
@@ -92,16 +128,17 @@ namespace EventFinder.Models
                 new EventFinderEvent
                 {
                     EventFinderEventTypeID = 3,
+                    EventType = eventTypes.Single(e => e.EventType == "Sports"),
                     Title= "Watch the Browns VI",
-                    StartDate = DateTime.Now.AddDays(-17),
-                    EndDate = DateTime.Now.AddDays(-16),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "brownsfan1n@nflcom",
                     Description = "Watch the Browns...again!",
                     StartTime = DateTime.Now,
-                    EndTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "OH",
                     City= "Cleveland",
                     FirstName = "Bill",
@@ -112,16 +149,17 @@ namespace EventFinder.Models
                new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 1",
-                    StartDate = DateTime.Now.AddDays(2),
-                    EndDate = DateTime.Now.AddDays(3),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "doctorsforhealth@doctors.com",
                     Description = "Daily online health check-in",
-                    StartTime = DateTime.Now.AddDays(2),
-                    EndTime = DateTime.Now.AddDays(3),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "MI",
                     City= "Detroit",
                     FirstName = "Tamera",
@@ -132,9 +170,10 @@ namespace EventFinder.Models
                new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 2",
-                    StartDate = DateTime.Now.AddDays(3),
-                    EndDate = DateTime.Now.AddDays(4),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
@@ -152,16 +191,17 @@ namespace EventFinder.Models
                   new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 3",
-                    StartDate = DateTime.Now.AddDays(4),
-                    EndDate = DateTime.Now.AddDays(5),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "doctorsforhealth@doctors.com",
                     Description = "Daily online health check-in",
-                    StartTime = DateTime.Now.AddDays(4),
-                    EndTime = DateTime.Now.AddDays(5),
+                   StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "MI",
                     City= "Detroit",
                     FirstName = "Tamera",
@@ -171,16 +211,17 @@ namespace EventFinder.Models
                    new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 4",
-                    StartDate = DateTime.Now.AddDays(5),
-                    EndDate = DateTime.Now.AddDays(6),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "doctorsforhealth@doctors.com",
                     Description = "Daily online health check-in",
-                    StartTime = DateTime.Now.AddDays(5),
-                    EndTime = DateTime.Now.AddDays(6),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "MI",
                     City= "Detroit",
                     FirstName = "Tamera",
@@ -190,16 +231,17 @@ namespace EventFinder.Models
                     new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 5",
-                    StartDate = DateTime.Now.AddDays(6),
-                    EndDate = DateTime.Now.AddDays(7),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "doctorsforhealth@doctors.com",
                     Description = "Daily online health check-in",
-                    StartTime = DateTime.Now.AddDays(6),
-                    EndTime = DateTime.Now.AddDays(7),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "MI",
                     City= "Detroit",
                     FirstName = "Tamera",
@@ -209,16 +251,17 @@ namespace EventFinder.Models
                       new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 6",
-                    StartDate = DateTime.Now.AddDays(7),
-                    EndDate = DateTime.Now.AddDays(8),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "doctorsforhealth@doctors.com",
                     Description = "Daily online health check-in",
-                    StartTime = DateTime.Now.AddDays(7),
-                    EndTime = DateTime.Now.AddDays(8),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "MI",
                     City= "Detroit",
                     FirstName = "Tamera",
@@ -229,16 +272,17 @@ namespace EventFinder.Models
                new EventFinderEvent
                {
                     EventFinderEventTypeID = 4,
+                    EventType = eventTypes.Single(e => e.EventType == "Health"),
                     Title= "Doctor's Visit 7",
-                    StartDate = DateTime.Now.AddDays(8),
-                    EndDate = DateTime.Now.AddDays(9),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 12345,
                     OrganizerEmail = "doctorsforhealth@doctors.com",
                     Description = "Daily online health check-in",
-                    StartTime = DateTime.Now.AddDays(8),
-                    EndTime = DateTime.Now.AddDays(9),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "MI",
                     City= "Detroit",
                     FirstName = "Tamera",
@@ -249,16 +293,17 @@ namespace EventFinder.Models
                new EventFinderEvent
                {
                     EventFinderEventTypeID = 7,
+                    EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "NYE Party",
-                    StartDate = new DateTime(12,31,2018),
-                    EndDate = new DateTime(1,1,2019),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 43201,
                     OrganizerEmail = "thisisla@cityoflosangeles.gov",
                     Description = "Let's party all day in Los Angeles!",
-                    StartTime = new DateTime(12,31,2018),
-                    EndTime = new DateTime(1,1,2019),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "CA",
                     City= "Los Angeles",
                     FirstName = "Alexis",
@@ -269,16 +314,17 @@ namespace EventFinder.Models
                new EventFinderEvent
                {
                     EventFinderEventTypeID = 7,
+                    EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "NYE Party Cleveland",
-                    StartDate = new DateTime(12,31,2018),
-                    EndDate = new DateTime(1,1,2019),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 44102,
                     OrganizerEmail = "thisiscle@cleveland.gov",
                     Description = "New Year's Eve Celebration in DownTown CLE",
-                    StartTime = new DateTime(12,31,2018),
-                    EndTime = new DateTime(1,1,2019),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "OH",
                     City= "Cleveland",
                     FirstName = "Martin",
@@ -289,24 +335,126 @@ namespace EventFinder.Models
                new EventFinderEvent
                {
                     EventFinderEventTypeID = 7,
+                    EventType = eventTypes.Single(e => e.EventType == "Social"),
                     Title= "Chicago New Year's Eve Party",
-                    StartDate = new DateTime(12,31,2018),
-                    EndDate = new DateTime(1,1,2019),
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
                     MaxTickets = 50,
                     AvailableTickets = 50,
                     ZipCode = 44102,
                     OrganizerEmail = "chicago@chicago.gov",
                     Description = "Chi-Town Party!!!",
-                    StartTime = new DateTime(12,31,2018),
-                    EndTime = new DateTime(1,1,2019),
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
                     State = "IL",
                     City= "Chicago",
                     FirstName = "Tommy",
                     LastName = "Leary",
                     AmountOfTickets = 0
+               },
+
+               new EventFinderEvent
+               {
+                    EventFinderEventTypeID = 7,
+                    EventType = eventTypes.Single(e => e.EventType == "Social"),
+                    Title= "Seattle New Year's Eve Party",
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(1),
+                    MaxTickets = 50,
+                    AvailableTickets = 50,
+                    ZipCode = 44102,
+                    OrganizerEmail = "seattle@seattle.gov",
+                    Description = "Celebrate the New Year in Seattle",
+                    StartTime = DateTime.Now,
+                    EndTime = DateTime.Now.AddDays(1),
+                    State = "WA",
+                    City= "Seattle",
+                    FirstName = "Jane",
+                    LastName = "Watanabe",
+                    AmountOfTickets = 0
+               },
+
+               new EventFinderEvent
+               {
+                    EventFinderEventTypeID = 2,
+                    EventType = eventTypes.Single(e => e.EventType == "Art"),
+                    Title= "MOMA PART I",
+                    StartDate = DateTime.Now.AddDays(5),
+                    EndDate = DateTime.Now.AddDays(6),
+                    MaxTickets = 50,
+                    AvailableTickets = 50,
+                    ZipCode = 44102,
+                    OrganizerEmail = "explore@arts.gov",
+                    Description = "Explore Art At MoMA",
+                    StartTime = DateTime.Now.AddDays(5),
+                    EndTime = DateTime.Now.AddDays(6),
+                    State = "NY",
+                    City= "New York City",
+                    FirstName = "Josef",
+                    LastName = "Dunne",
+                    AmountOfTickets = 0
+               },
+
+                new EventFinderEvent
+               {
+                    EventFinderEventTypeID = 2,
+                    EventType = eventTypes.Single(e => e.EventType == "Art"),
+                    Title= "MOMA PART III",
+                    StartDate = DateTime.Now.AddDays(15),
+                    EndDate = DateTime.Now.AddDays(16),
+                    MaxTickets = 50,
+                    AvailableTickets = 50,
+                    ZipCode = 44102,
+                    OrganizerEmail = "explore@arts.gov",
+                    Description = "Explore Art At MoMA",
+                    StartTime = DateTime.Now.AddDays(15),
+                    EndTime = DateTime.Now.AddDays(16),
+                    State = "NY",
+                    City= "New York City",
+                    FirstName = "Josef",
+                    LastName = "Dunne",
+                    AmountOfTickets = 0
+               },
+
+                 new EventFinderEvent
+               {
+                    EventFinderEventTypeID = 2,
+                    EventType = eventTypes.Single(e => e.EventType == "Art"),
+                    Title= "MOMA PART III",
+                    StartDate = DateTime.Now.AddDays(19),
+                    EndDate = DateTime.Now.AddDays(20),
+                    MaxTickets = 50,
+                    AvailableTickets = 50,
+                    ZipCode = 44102,
+                    OrganizerEmail = "explore@arts.gov",
+                    Description = "Explore Art At MoMA",
+                    StartTime = DateTime.Now.AddDays(5),
+                    EndTime = DateTime.Now.AddDays(6),
+                    State = "NY",
+                    City= "New York City",
+                    FirstName = "Josef",
+                    LastName = "Dunne",
+                    AmountOfTickets = 0
                }
 
             }.ForEach(a => context.EventFinderEvents.Add(a));
+
+            context.SaveChanges();
+        }
+        catch (DbEntityValidationException e)
+        {
+            foreach (var eve in e.EntityValidationErrors)
+            {
+             Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                 eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                foreach (var ve in eve.ValidationErrors)
+                 {
+                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+                    }
+                throw;
+            }
         }
     }
 }

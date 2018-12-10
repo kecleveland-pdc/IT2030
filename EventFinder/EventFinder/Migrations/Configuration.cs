@@ -10,6 +10,7 @@ namespace EventFinder.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = false;
             ContextKey = "EventFinder.Models.EventFinderDB";
         }
 
