@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EventFinder.Models.EventFinderEvent>
+﻿@model EventFinder.Models.EventFinderEvent
 
 <div id="background-image">
     <img src="~/Content/resources/images/community.jpg" alt="people with raised hands at concert facing neon white sign reading community" />
@@ -7,6 +7,7 @@
     <div class="col-md-8 event-finder-events">
         <h4>Search Events</h4>
        <!-- <form class="form-inline">-->
+       
             @using (
                 Ajax.BeginForm("SearchByEventTypeEventLocation", "EventFinderManager",
                     new AjaxOptions
@@ -22,8 +23,6 @@
             {
                 <label class="sr-only" for="inlineFormInput">Event type</label>
                 <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name="eventType" placeholder="music, art, sports...">
-                @*<label class="sr-only" for="inlineFormInput">State</label>
-                <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" name = "location" placeholder="OH, DC, Atlanta...">*@
                 <input type="submit" class="btn btn-primary" value="search" />
             }
        <!-- </form>-->
@@ -46,6 +45,9 @@
             },
             new { @class = "btn btn-primary .eventfindermanager-btn" } //HTML Attributes
             )
+        </div>
+        <div>
+            @Html.DropDownList("All", null, htmlAttributes: new { @class = "form-control" })
         </div>
     </div>
 </div>

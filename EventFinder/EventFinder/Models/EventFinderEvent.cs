@@ -78,6 +78,10 @@ namespace EventFinder.Models
         [DisplayName("Tickets")]
         public int AmountOfTickets { get; set; }
 
+        [DisplayName("Event")]
+        public string SelectedEvent { get; set; }
+        public IEnumerable<SelectListItem> AllEvents { get; set; }
+
         //Self-validating object 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
