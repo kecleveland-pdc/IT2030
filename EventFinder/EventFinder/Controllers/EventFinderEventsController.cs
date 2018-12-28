@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using EventFinder.Models;
 using System.Data.Entity.Infrastructure;
+using EventFinder.Models.ViewModels;
 
 namespace EventFinder.Controllers
 {
@@ -18,7 +19,9 @@ namespace EventFinder.Controllers
         // GET: EventFinderEvents
         public ActionResult Index()
         {
+            SelectedEventViewModel svm = new SelectedEventViewModel();
             var eventFinderEvents = db.EventFinderEvents.Include(e => e.EventType);
+            ViewBag.SelectedEvent = new SelectList(svm.AllEvents, svm.SelectedEvent, svm.SelectedEvent);
             return View(eventFinderEvents.ToList());
         }
 
